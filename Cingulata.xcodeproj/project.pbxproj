@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B6FA1BC069C900F48423 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B6F71BC069C900F48423 /* Cingulata.framework */; settings = {ASSET_TAGS = (); }; };
+		86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9B7061BC069C900F48423 /* CingulataTests.swift */; };
+		ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */; };
+		ACCA5B1C654719AC150966D7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ApiClient.swift */; };
+		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
+		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
+		ACCA5DCF704CC52C44DB680F /* RequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */; };
+		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86B9B7031BC069C900F48423 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B9B6EE1BC069C900F48423 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86B9B6F61BC069C900F48423;
+			remoteInfo = Cingulata;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		86B9B6F71BC069C900F48423 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86B9B6FA1BC069C900F48423 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
+		86B9B6FC1BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86B9B7011BC069C900F48423 /* CingulataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CingulataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86B9B7061BC069C900F48423 /* CingulataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CingulataTests.swift; sourceTree = "<group>"; };
+		86B9B7081BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilders.swift; sourceTree = "<group>"; };
+		ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
+		ACCA570E92336EBEB87FD731 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		ACCA5C8FCC750A4E41E22ECA /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86B9B6F31BC069C900F48423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86B9B6FE1BC069C900F48423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		86B9B6ED1BC069C900F48423 = {
+			isa = PBXGroup;
+			children = (
+				86B9B6F91BC069C900F48423 /* Cingulata */,
+				86B9B7051BC069C900F48423 /* CingulataTests */,
+				86B9B6F81BC069C900F48423 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		86B9B6F81BC069C900F48423 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86B9B6F71BC069C900F48423 /* Cingulata.framework */,
+				86B9B7011BC069C900F48423 /* CingulataTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86B9B6F91BC069C900F48423 /* Cingulata */ = {
+			isa = PBXGroup;
+			children = (
+				86B9B6FA1BC069C900F48423 /* Cingulata.h */,
+				86B9B6FC1BC069C900F48423 /* Info.plist */,
+				ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */,
+				ACCA5C8FCC750A4E41E22ECA /* ApiClient.swift */,
+				ACCA570E92336EBEB87FD731 /* Mapper.swift */,
+				ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */,
+				ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */,
+				ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */,
+			);
+			path = Cingulata;
+			sourceTree = "<group>";
+		};
+		86B9B7051BC069C900F48423 /* CingulataTests */ = {
+			isa = PBXGroup;
+			children = (
+				86B9B7061BC069C900F48423 /* CingulataTests.swift */,
+				86B9B7081BC069C900F48423 /* Info.plist */,
+			);
+			path = CingulataTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		86B9B6F41BC069C900F48423 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		86B9B6F61BC069C900F48423 /* Cingulata */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86B9B70B1BC069C900F48423 /* Build configuration list for PBXNativeTarget "Cingulata" */;
+			buildPhases = (
+				86B9B6F21BC069C900F48423 /* Sources */,
+				86B9B6F31BC069C900F48423 /* Frameworks */,
+				86B9B6F41BC069C900F48423 /* Headers */,
+				86B9B6F51BC069C900F48423 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cingulata;
+			productName = Cingulata;
+			productReference = 86B9B6F71BC069C900F48423 /* Cingulata.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		86B9B7001BC069C900F48423 /* CingulataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86B9B70E1BC069C900F48423 /* Build configuration list for PBXNativeTarget "CingulataTests" */;
+			buildPhases = (
+				86B9B6FD1BC069C900F48423 /* Sources */,
+				86B9B6FE1BC069C900F48423 /* Frameworks */,
+				86B9B6FF1BC069C900F48423 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86B9B7041BC069C900F48423 /* PBXTargetDependency */,
+			);
+			name = CingulataTests;
+			productName = CingulataTests;
+			productReference = 86B9B7011BC069C900F48423 /* CingulataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86B9B6EE1BC069C900F48423 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = baydet;
+				TargetAttributes = {
+					86B9B6F61BC069C900F48423 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					86B9B7001BC069C900F48423 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 86B9B6F11BC069C900F48423 /* Build configuration list for PBXProject "Cingulata" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 86B9B6ED1BC069C900F48423;
+			productRefGroup = 86B9B6F81BC069C900F48423 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86B9B6F61BC069C900F48423 /* Cingulata */,
+				86B9B7001BC069C900F48423 /* CingulataTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86B9B6F51BC069C900F48423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86B9B6FF1BC069C900F48423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		86B9B6F21BC069C900F48423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */,
+				ACCA5B1C654719AC150966D7 /* ApiClient.swift in Sources */,
+				ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */,
+				ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */,
+				ACCA5DCF704CC52C44DB680F /* RequestBuilders.swift in Sources */,
+				ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86B9B6FD1BC069C900F48423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86B9B7041BC069C900F48423 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86B9B6F61BC069C900F48423 /* Cingulata */;
+			targetProxy = 86B9B7031BC069C900F48423 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		86B9B7091BC069C900F48423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		86B9B70A1BC069C900F48423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		86B9B70C1BC069C900F48423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Cingulata/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.Cingulata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		86B9B70D1BC069C900F48423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Cingulata/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.Cingulata;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		86B9B70F1BC069C900F48423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CingulataTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.CingulataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		86B9B7101BC069C900F48423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CingulataTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.CingulataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		86B9B6F11BC069C900F48423 /* Build configuration list for PBXProject "Cingulata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86B9B7091BC069C900F48423 /* Debug */,
+				86B9B70A1BC069C900F48423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86B9B70B1BC069C900F48423 /* Build configuration list for PBXNativeTarget "Cingulata" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86B9B70C1BC069C900F48423 /* Debug */,
+				86B9B70D1BC069C900F48423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		86B9B70E1BC069C900F48423 /* Build configuration list for PBXNativeTarget "CingulataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86B9B70F1BC069C900F48423 /* Debug */,
+				86B9B7101BC069C900F48423 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 86B9B6EE1BC069C900F48423 /* Project object */;
+}
