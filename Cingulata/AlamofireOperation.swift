@@ -23,9 +23,9 @@ class AlamofireOperation: Operation {
     override func execute() {
 
         request = Alamofire.request(urlRequest)
-        request?.responseJSON() { [unowned self] (request, response, result) -> Void in
-            self.statusCode = response?.statusCode
-            switch result {
+        request?.responseJSON() { [unowned self]  response  in
+            self.statusCode = response.response?.statusCode
+            switch response.result {
             case .Success(let value):
                 self.responseJSON = value
             default:

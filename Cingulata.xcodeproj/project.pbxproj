@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8611C0201BC0F6E50005C0E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */; };
+		8611C0211BC0F6E50005C0E7 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */; };
+		8611C0241BC0F71F0005C0E7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C0231BC0F71F0005C0E7 /* CoreData.framework */; };
+		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; settings = {ASSET_TAGS = (); }; };
 		86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B6FA1BC069C900F48423 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B6F71BC069C900F48423 /* Cingulata.framework */; settings = {ASSET_TAGS = (); }; };
 		86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9B7061BC069C900F48423 /* CingulataTests.swift */; };
 		ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */; };
-		ACCA5B1C654719AC150966D7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ApiClient.swift */; };
 		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
 		ACCA5DCF704CC52C44DB680F /* RequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */; };
@@ -29,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		8611C0231BC0F71F0005C0E7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
 		86B9B6F71BC069C900F48423 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B9B6FA1BC069C900F48423 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
 		86B9B6FC1BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8611C0241BC0F71F0005C0E7 /* CoreData.framework in Frameworks */,
+				8611C0201BC0F6E50005C0E7 /* Alamofire.framework in Frameworks */,
+				8611C0211BC0F6E50005C0E7 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +75,9 @@
 		86B9B6ED1BC069C900F48423 = {
 			isa = PBXGroup;
 			children = (
+				8611C0231BC0F71F0005C0E7 /* CoreData.framework */,
+				8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */,
+				8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */,
 				86B9B6F91BC069C900F48423 /* Cingulata */,
 				86B9B7051BC069C900F48423 /* CingulataTests */,
 				86B9B6F81BC069C900F48423 /* Products */,
@@ -91,6 +104,7 @@
 				ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */,
 				ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */,
 				ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */,
+				8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */,
 			);
 			path = Cingulata;
 			sourceTree = "<group>";
@@ -123,9 +137,10 @@
 			buildConfigurationList = 86B9B70B1BC069C900F48423 /* Build configuration list for PBXNativeTarget "Cingulata" */;
 			buildPhases = (
 				86B9B6F21BC069C900F48423 /* Sources */,
-				86B9B6F31BC069C900F48423 /* Frameworks */,
 				86B9B6F41BC069C900F48423 /* Headers */,
 				86B9B6F51BC069C900F48423 /* Resources */,
+				86B9B6F31BC069C900F48423 /* Frameworks */,
+				8611C0221BC0F6F40005C0E7 /* Copy Carthage frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,15 +221,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8611C0221BC0F6F40005C0E7 /* Copy Carthage frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+			);
+			name = "Copy Carthage frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		86B9B6F21BC069C900F48423 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */,
-				ACCA5B1C654719AC150966D7 /* ApiClient.swift in Sources */,
 				ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */,
 				ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */,
+				8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */,
 				ACCA5DCF704CC52C44DB680F /* RequestBuilders.swift in Sources */,
 				ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */,
 			);
@@ -335,6 +369,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Cingulata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -351,6 +389,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Cingulata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -399,6 +441,7 @@
 				86B9B70D1BC069C900F48423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86B9B70E1BC069C900F48423 /* Build configuration list for PBXNativeTarget "CingulataTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +450,7 @@
 				86B9B7101BC069C900F48423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
