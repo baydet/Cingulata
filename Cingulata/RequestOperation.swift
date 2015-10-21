@@ -10,47 +10,79 @@ import Foundation
 import Alamofire
 import CoreData
 
-public enum ResultType {
-    case Success(AnyObject?)
-    case Error(NSError)
+
+public enum HTTPStatusCodeGroup {
+    case NoCode
+    case Success(HTTPStatusCode?)
+    case Client(HTTPStatusCode?)
+    case Server(HTTPStatusCode?)
+
+    init?(code: HTTPStatusCode) {
+        switch code.rawValue {
+        case 0:
+            self = .NoCode
+        case 200...299:
+            self = .Success(code)
+        case 400...499:
+            self = .Client(code)
+        case 500...599:
+            self = .Server(code)
+        default:
+            return nil
+        }
+    }
+
+    private func compareCodes(a: HTTPStatusCode?,_ b: HTTPStatusCode?) -> Bool {
+        guard let a = a else {
+            return true
+        }
+        guard let b = b else {
+            return false
+        }
+        return a == b
+    }
+
+
+    public func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
+        switch (self, codeGroup) {
+        case (.Success(let a), .Success(let b)):
+            return compareCodes(a, b)
+        case (.Client(let a), .Client(let b)):
+            return compareCodes(a, b)
+        case (.Server(let a), .Server(let b)):
+            return compareCodes(a, b)
+        default:
+            return false
+        }
+    }
 }
 
-public enum StatusCode: Int {
+public enum HTTPStatusCode: Int {
     case NoStatusCode = 0
     case OK = 200
     case Created = 201
+    case NoContent = 204
     case BadRequest = 400
     case Unauthorized = 401
     case Forbidden = 403
     case NotFound = 404
     case InternalServerError = 500
-
-    case ClientErrors
-    case Success
-    case ServerErrors
-
-    private func containsCode(code: Int) -> Bool {
-        switch self {
-        case .ClientErrors:
-            return code / 100 == 4
-        case .Success:
-            return code / 100 == 2
-        case .ServerErrors:
-            return code / 100 == 5
-        default:
-            return self.rawValue == code
-        }
-    }
 }
 
-protocol ServerErrorProtocol {
-    var message: String? {get}
+public protocol ServerErrorProtocol: ErrorType {
+    var message: String { get }
 }
 
-enum RequestError: ErrorType {
-    case BuildError
-    case HTTPRequestError(StatusCode, ServerErrorProtocol?)
+public enum RequestError: ErrorType {
+    case BuildRequestError(message: String)
+    case HTTPRequestError(HTTPStatusCodeGroup, ServerErrorProtocol)
     case MappingError(MapperError)
+}
+
+private struct UnknownError: ServerErrorProtocol {
+    var message: String {
+        return "Unknown error"
+    }
 }
 
 public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest
@@ -58,23 +90,26 @@ public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMet
 public class RequestOperation: Operation {
 
     public let requestMethod: Alamofire.Method
-    public let requestMapping: (String, DataMapper)?
-    public let responseMappings: [(StatusCode, String, DataMapper)]?
-    public var errorBlock: (([ErrorType]) -> Void)?
+    public let requestMapping: (String?, DataMapper)?
+    public let responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?
+    public var errorBlock: (([RequestError]) -> Void)?
     public var successBlock: (([Any]) -> Void)?
 
     private let requestBuilder: NSURLRequestBuilder
     private let parameters: [String: AnyObject]?
     private let URL: NSURL
     private let internalQueue = NSOperationQueue()
+    private var operationStartDate: NSDate = NSDate()
 
-    public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]?, requestBuilder: NSURLRequestBuilder, requestMapping: (String, DataMapper)?, responseMappings: [(StatusCode, String, DataMapper)]?, URL: NSURL) {
+    public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]?, requestBuilder: NSURLRequestBuilder, requestMapping: (String?, DataMapper)?, responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?, URL: NSURL) {
+
         self.parameters = parameters
         self.requestMethod = requestMethod
         self.requestMapping = requestMapping
         self.responseMappings = responseMappings
         self.requestBuilder = requestBuilder
         self.URL = URL
+
         super.init()
 
         internalQueue.maxConcurrentOperationCount = 1
@@ -84,66 +119,74 @@ public class RequestOperation: Operation {
     }
 
     private func map(statusCode: Int, responseJSON: AnyObject?) {
-        guard let statusCodeValue = StatusCode(rawValue: statusCode) else {
+        guard let statusCodeValue = HTTPStatusCode(rawValue: statusCode), codeGroup = HTTPStatusCodeGroup(code: statusCodeValue) else {
             print("unexpected status code value")
             return
         }
 
-        if let d = self.responseMappings, let json: AnyObject = responseJSON {
-            let filteredMappings = d.filter{$0.0.containsCode(statusCode)}
-            for (_, key, mapper) in filteredMappings {
-                var mappedJSON: AnyObject?
-                if (key.characters.count == 0) {
-                    mappedJSON = json
-                } else if let dict = json as? [String : AnyObject] {
-                    mappedJSON = dict[key]
-                } else {
-                    //todo handle error unknown response Type
-                }
-                do {
-                    try mapper.mapToObject(mappedJSON)
-                } catch let error {
-                    if let mapError = error as? MapperError {
-                        self.errors.append(RequestError.MappingError(mapError))
+        if let responseMappings = self.responseMappings, json = responseJSON {
+            responseMappings
+                .filter { $0.0.has(codeGroup) }
+                .forEach { _, key, mapper in
+                    //
+                    let mappedJSON: AnyObject?
+
+                    if let key = key, dict = json as? [String : AnyObject] {
+                        mappedJSON = dict[key]
+                    } else {
+                        mappedJSON = json
+                    }
+
+                    //
+                    do {
+                        try mapper.mapToObject(mappedJSON)
+                    } catch let error as MapperError {
+                        errors.append(RequestError.MappingError(error))
+                    } catch {
+                        // Nothing to do
                     }
                 }
-            }
         }
 
-        if StatusCode.ServerErrors.containsCode(statusCodeValue.rawValue) || StatusCode.ClientErrors.containsCode(statusCodeValue.rawValue) {
-            let error: ServerErrorProtocol? = self.responseMappings?.filter{$0.2.mappingResult is ServerErrorProtocol}.map{$0.2.mappingResult as! ServerErrorProtocol}.first
-            self.errors.append(RequestError.HTTPRequestError(statusCodeValue, error))
+        if HTTPStatusCodeGroup.Server(nil).has(codeGroup) || HTTPStatusCodeGroup.Client(nil).has(codeGroup) {
+            let error = self.responseMappings?.flatMap{_, _, mapper in mapper.mappingResult as? ServerErrorProtocol}.first
+
+            errors.append(RequestError.HTTPRequestError(codeGroup, error ?? UnknownError()))
         }
     }
 
     override func execute() {
         internalQueue.suspended = false
+        operationStartDate = NSDate()
 
         do {
             let URLRequest = try requestBuilder(parameters: requestParameters(), HTTPMethod: requestMethod.rawValue, URL: URL)
             let httpOperation = AlamofireOperation(request: URLRequest)
-            httpOperation.completionBlock = { [unowned self] in
-                self.errors += httpOperation.errors
+            httpOperation.completionBlock = { [weak self] in
+                self?.errors += httpOperation.errors
             }
 
-            let mappingOperation = NSBlockOperation(){ [unowned self] in
+            let mappingOperation = NSBlockOperation(){ [weak self] in
                 guard let statusCode = httpOperation.statusCode else {
-                    self.errors.append(RequestError.HTTPRequestError(.NoStatusCode, nil))
+                    self?.errors.append(RequestError.HTTPRequestError(.NoCode, UnknownError()))
+
                     return
                 }
-                self.map(statusCode, responseJSON: httpOperation.responseJSON)
+
+                self?.map(statusCode, responseJSON: httpOperation.responseJSON)
             }
 
-            let finishingOperation = NSBlockOperation(block: { [unowned self] in
-                self.finish()
+            let finishingOperation = NSBlockOperation(block: { [weak self] in
+                self?.finish()
             })
 
             addOperation(httpOperation)
             addOperation(mappingOperation)
             addOperation(finishingOperation)
 
-        } catch let error as NSError {
-            errors.append(error)
+        } catch let nsError as NSError {
+            errors.append(nsError)
+
             finish()
         }
     }
@@ -152,21 +195,24 @@ public class RequestOperation: Operation {
         if let lastOperation = internalQueue.operations.last {
             operation.addDependency(lastOperation)
         }
+
         internalQueue.addOperation(operation)
     }
 
     private func requestParameters() -> [String : AnyObject]? {
         var resultDictionary: [String : AnyObject]? = nil
+
         if let rMapping = requestMapping {
             let json = rMapping.1.mapToJSON()
-            if rMapping.0.characters.count == 0 {
+            if let key = rMapping.0 {
+                resultDictionary = [:]
+                resultDictionary?[key] = json
+            } else {
                 guard let jsonDict = json as? [String : AnyObject] else {
                     assert(false, "unable to assign non dictionary to zero key")
+                    return nil
                 }
                 resultDictionary = jsonDict
-            } else {
-                resultDictionary = [:]
-                resultDictionary?[rMapping.0] = json
             }
 
         }
@@ -183,24 +229,20 @@ public class RequestOperation: Operation {
     }
 
     override func finish() {
-        if errors.count > 0 {
-            if let block = errorBlock {
-                block(errors)
-            } else {
-                print(errors)
-            }
+        let interval = NSDate().timeIntervalSinceDate(operationStartDate)
+        let format = ".3"
+        print(String(format:"\(requestMethod):\(URL.absoluteString) completed in %.3f sec.", interval))
+        let requestErrors = errors.flatMap { $0 as? RequestError }
+        if !(requestErrors.isEmpty) {
+            print(requestErrors)
+
+            errorBlock?(requestErrors)
         } else {
-            var mappingResults: [Any] = []
-            if let mappings = responseMappings {
-                for (_, _, mapper) in mappings {
-                    guard let result = mapper.mappingResult else {
-                        continue;
-                    }
-                    mappingResults.append(result)
-                }
-            }
-            successBlock?(mappingResults)
+            let results = responseMappings?.flatMap { $0.2.mappingResult } ?? []
+
+            successBlock?(results)
         }
+
         super.finish()
     }
 }

@@ -6,12 +6,17 @@
 //  Copyright © 2015 baydet. All rights reserved.
 //
 
+import CoreData
 import ObjectMapper
 
 public protocol DataMapper {
     var mappingResult: Any? {get}
     func mapToJSON() -> AnyObject?
     func mapToObject(json: AnyObject?) throws
+}
+
+public protocol UniqueMappable : Mappable {
+    static func identificationAttributes() -> [(String, String)]
 }
 
 public enum ExpectedResultType {
@@ -34,7 +39,7 @@ public class DefaultMapper<T: Mappable>: DataMapper {
     public let expectedResultType: ExpectedResultType
     public private(set) var mappingResult: Any?
 
-    internal let mapper: Mapper<T> = Mapper<T>()
+    private let mapper: Mapper<T> = Mapper<T>()
     private var sourceObject: SourceObjectType<T>?
 
     public required init(sourceObject: SourceObjectType<T>?, expectedResultType: ExpectedResultType = .Object) {
