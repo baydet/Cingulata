@@ -1,2 +1,2 @@
 # Cingulata
-Swift framework for network communications mapping and storing received data
+Swift library for REST network communications mapping and storing received data
