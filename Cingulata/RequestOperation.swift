@@ -43,7 +43,7 @@ public enum HTTPStatusCodeGroup {
     }
 
 
-    public func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
+    private func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
         switch (self, codeGroup) {
         case (.Success(let a), .Success(let b)):
             return compareCodes(a, b)
@@ -88,17 +88,17 @@ private struct UnknownError: ServerErrorProtocol {
 public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest
 
 public class RequestOperation: Operation {
-
-    public let requestMethod: Alamofire.Method
-    public let requestMapping: (String?, DataMapper)?
-    public let responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?
     public var errorBlock: (([RequestError]) -> Void)?
     public var successBlock: (([Any]) -> Void)?
 
+    private let requestMethod: Alamofire.Method
+    private let requestMapping: (String?, DataMapper)?
+    private let responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?
     private let requestBuilder: NSURLRequestBuilder
     private let parameters: [String: AnyObject]?
     private let URL: NSURL
     private let internalQueue = NSOperationQueue()
+    
     private var operationStartDate: NSDate = NSDate()
 
     public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]?, requestBuilder: NSURLRequestBuilder, requestMapping: (String?, DataMapper)?, responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?, URL: NSURL) {
@@ -230,7 +230,6 @@ public class RequestOperation: Operation {
 
     override func finish() {
         let interval = NSDate().timeIntervalSinceDate(operationStartDate)
-        let format = ".3"
         print(String(format:"\(requestMethod):\(URL.absoluteString) completed in %.3f sec.", interval))
         let requestErrors = errors.flatMap { $0 as? RequestError }
         if !(requestErrors.isEmpty) {

@@ -30,13 +30,13 @@ public enum SourceObjectType<S> {
 }
 
 public class DefaultMapper<T: Mappable>: DataMapper {
-    public let expectedResultType: ExpectedResultType
+    private let expectedResultType: ExpectedResultType
     public private(set) var mappingResult: Any?
 
     let mapper: Mapper<T> = Mapper<T>()
     private var sourceObject: SourceObjectType<T>?
 
-    public required init(sourceObject: SourceObjectType<T>?, expectedResultType: ExpectedResultType = .Object) {
+    public required init(sourceObject: SourceObjectType<T>? = nil, expectedResultType: ExpectedResultType = .Object) {
         self.sourceObject = sourceObject
         self.expectedResultType = expectedResultType
     }
@@ -80,7 +80,7 @@ public class DefaultMapper<T: Mappable>: DataMapper {
         }
     }
 
-    internal func mapFromJSON(jsonDictionary: [String : AnyObject]) -> T? {
+    func mapFromJSON(jsonDictionary: [String : AnyObject]) -> T? {
         return mapper.map(jsonDictionary)
     }
 }

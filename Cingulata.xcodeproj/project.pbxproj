@@ -12,10 +12,14 @@
 		8611C0241BC0F71F0005C0E7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C0231BC0F71F0005C0E7 /* CoreData.framework */; };
 		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; };
 		867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */; };
+		867E66291BDCEA34002E8AEC /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E66281BDCEA34002E8AEC /* MapperTests.swift */; };
+		867E662B1BDCEFF6002E8AEC /* CoreDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */; };
+		867E662D1BDCF076002E8AEC /* RequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */; };
 		86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B6FA1BC069C900F48423 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B6F71BC069C900F48423 /* Cingulata.framework */; };
 		86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9B7061BC069C900F48423 /* CingulataTests.swift */; };
 		ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */; };
+		ACCA58306492F7A7AA0EFD06 /* NSManagedObjectContext+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */; };
 		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
 		ACCA5DCF704CC52C44DB680F /* NSURLRequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */; };
@@ -37,6 +41,9 @@
 		8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		8611C0231BC0F71F0005C0E7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
+		867E66281BDCEA34002E8AEC /* MapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
+		867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapperTests.swift; sourceTree = "<group>"; };
+		867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperationTests.swift; sourceTree = "<group>"; };
 		86B9B6F71BC069C900F48423 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B9B6FA1BC069C900F48423 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
 		86B9B6FC1BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		ACCA570E92336EBEB87FD731 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
+		ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
 		ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,7 @@
 				ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */,
 				ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */,
 				8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */,
+				ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */,
 			);
 			path = Cingulata;
 			sourceTree = "<group>";
@@ -115,6 +124,9 @@
 			children = (
 				86B9B7061BC069C900F48423 /* CingulataTests.swift */,
 				86B9B7081BC069C900F48423 /* Info.plist */,
+				867E66281BDCEA34002E8AEC /* MapperTests.swift */,
+				867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */,
+				867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */,
 			);
 			path = CingulataTests;
 			sourceTree = "<group>";
@@ -253,6 +265,7 @@
 				8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */,
 				ACCA5DCF704CC52C44DB680F /* NSURLRequestBuilders.swift in Sources */,
 				ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */,
+				ACCA58306492F7A7AA0EFD06 /* NSManagedObjectContext+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867E66291BDCEA34002E8AEC /* MapperTests.swift in Sources */,
 				86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */,
+				867E662B1BDCEFF6002E8AEC /* CoreDataMapperTests.swift in Sources */,
+				867E662D1BDCF076002E8AEC /* RequestOperationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
