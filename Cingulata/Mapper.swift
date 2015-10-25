@@ -15,16 +15,10 @@ public protocol DataMapper {
     func mapToObject(json: AnyObject?) throws
 }
 
-public protocol UniqueMappable : Mappable {
-    static func identificationAttributes() -> [(String, String)]
-}
-
 public enum ExpectedResultType {
     case Object
     case Array
 }
-
-//todo refactor result type
 
 public enum MapperError: ErrorType {
     case WrongJSONFormat
@@ -39,7 +33,7 @@ public class DefaultMapper<T: Mappable>: DataMapper {
     public let expectedResultType: ExpectedResultType
     public private(set) var mappingResult: Any?
 
-    private let mapper: Mapper<T> = Mapper<T>()
+    let mapper: Mapper<T> = Mapper<T>()
     private var sourceObject: SourceObjectType<T>?
 
     public required init(sourceObject: SourceObjectType<T>?, expectedResultType: ExpectedResultType = .Object) {

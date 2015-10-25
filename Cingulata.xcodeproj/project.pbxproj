@@ -10,14 +10,15 @@
 		8611C0201BC0F6E50005C0E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */; };
 		8611C0211BC0F6E50005C0E7 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */; };
 		8611C0241BC0F71F0005C0E7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C0231BC0F71F0005C0E7 /* CoreData.framework */; };
-		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; settings = {ASSET_TAGS = (); }; };
+		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; };
+		867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */; };
 		86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B6FA1BC069C900F48423 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B6F71BC069C900F48423 /* Cingulata.framework */; settings = {ASSET_TAGS = (); }; };
+		86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B6F71BC069C900F48423 /* Cingulata.framework */; };
 		86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9B7061BC069C900F48423 /* CingulataTests.swift */; };
 		ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */; };
 		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
-		ACCA5DCF704CC52C44DB680F /* RequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */; };
+		ACCA5DCF704CC52C44DB680F /* NSURLRequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */; };
 		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,11 +43,11 @@
 		86B9B7011BC069C900F48423 /* CingulataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CingulataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B9B7061BC069C900F48423 /* CingulataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CingulataTests.swift; sourceTree = "<group>"; };
 		86B9B7081BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilders.swift; sourceTree = "<group>"; };
+		ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestBuilders.swift; sourceTree = "<group>"; };
 		ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		ACCA570E92336EBEB87FD731 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		ACCA5C8FCC750A4E41E22ECA /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
 		ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,10 +100,10 @@
 				86B9B6FA1BC069C900F48423 /* Cingulata.h */,
 				86B9B6FC1BC069C900F48423 /* Info.plist */,
 				ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */,
-				ACCA5C8FCC750A4E41E22ECA /* ApiClient.swift */,
+				ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */,
 				ACCA570E92336EBEB87FD731 /* Mapper.swift */,
 				ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */,
-				ACCA501374621BA1A70D9F95 /* RequestBuilders.swift */,
+				ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */,
 				ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */,
 				8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */,
 			);
@@ -245,11 +246,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */,
 				ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */,
 				ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */,
 				ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */,
 				8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */,
-				ACCA5DCF704CC52C44DB680F /* RequestBuilders.swift in Sources */,
+				ACCA5DCF704CC52C44DB680F /* NSURLRequestBuilders.swift in Sources */,
 				ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

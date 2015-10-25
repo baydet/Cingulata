@@ -9,11 +9,31 @@
 import CoreData
 import ObjectMapper
 
-public protocol UniqueMappable : Mappable {
-    static func identificationAttributes() -> [(String, String)]
+public struct UniqueAttribute {
+    let modelKey: String
+    let jsonKey: String
 }
 
-public class CoreDataMapper<T where T: NSManagedObject, T: UniqueMappable> : DefaultMapper<T> {
+public protocol CoreDataMappable: Mappable {
+    static func identificationAttributes() -> [UniqueAttribute]
+    static func predicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate?
+}
+
+func defaultPredicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate? {
+    let value: AnyObject? = map[attribute.jsonKey].value()
+    guard let str = value else {
+        return nil
+    }
+    return NSPredicate(format: "\(attribute.modelKey) == \(str)")
+}
+
+extension CoreDataMappable {
+    static func predicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate? {
+        return defaultPredicate(attribute, map: map)
+    }
+}
+
+public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : DefaultMapper<T> {
     private let context: NSManagedObjectContext
 
     public required init(sourceObject: SourceObjectType<T>?, expectedResultType: ExpectedResultType = .Object, context: NSManagedObjectContext) {
@@ -62,7 +82,7 @@ public class CoreDataMapper<T where T: NSManagedObject, T: UniqueMappable> : Def
     }
 }
 
-struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObject, ObjectType: UniqueMappable>: TransformType {
+struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObject, ObjectType:CoreDataMappable>: TransformType {
     typealias Object = ObjectType
     typealias JSON = AnyObject
     private let mapper: Mapper<ObjectType> = Mapper<ObjectType>()
@@ -87,24 +107,13 @@ struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObject, Obje
     }
 }
 
-private func mapObjectFromJSON<T where T: NSManagedObject, T: UniqueMappable>(jsonDictionary: [String : AnyObject], mapper: Mapper<T>, inContext context: NSManagedObjectContext) -> T? {
+private func mapObjectFromJSON<T where T: NSManagedObject, T: CoreDataMappable>(jsonDictionary: [String : AnyObject], mapper: Mapper<T>, inContext context: NSManagedObjectContext) -> T? {
     if T.identificationAttributes().count > 0 {
-        var predicateString = ""
         let identifiers = T.identificationAttributes()
         let map = Map(mappingType: ObjectMapper.MappingType.FromJSON, JSONDictionary: jsonDictionary)
         assert(identifiers.count >= 1, "you should set at least 1 identifier for \(T.self)")
-        for attribute in identifiers {
-            let value: AnyObject? = map[attribute.1].value()
-            guard let str = value else {
-                continue
-            }
-            predicateString += "\(attribute.0) == \(str)"
-            if attribute.0 != identifiers.last?.0 {
-                predicateString += " AND "
-            }
-        }
-        let predicate = NSPredicate(format: predicateString)
-        let cachedObjects = context.find(entityType: T.self, predicate: predicate)
+        let predicates: [NSPredicate] = identifiers.flatMap{T.predicate($0, map: map)}
+        let cachedObjects = context.find(entityType: T.self, predicate: NSCompoundPredicate(type: .AndPredicateType, subpredicates: predicates))
         if cachedObjects.count > 1 {
             print("Warning! More that one entity (\(cachedObjects.count)) of \(T.self) with identifiers \(identifiers) found")
         }
