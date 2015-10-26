@@ -10,8 +10,8 @@ import CoreData
 import ObjectMapper
 
 public struct UniqueAttribute {
-    let modelKey: String
-    let jsonKey: String
+    public let modelKey: String
+    public let jsonKey: String
 }
 
 public protocol CoreDataMappable: Mappable {
@@ -19,7 +19,7 @@ public protocol CoreDataMappable: Mappable {
     static func predicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate?
 }
 
-func defaultPredicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate? {
+public func defaultPredicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate? {
     let value: AnyObject? = map[attribute.jsonKey].value()
     guard let str = value else {
         return nil
@@ -27,7 +27,7 @@ func defaultPredicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPr
     return NSPredicate(format: "\(attribute.modelKey) == \(str)")
 }
 
-extension CoreDataMappable {
+public extension CoreDataMappable {
     static func predicate(attribute: UniqueAttribute, map: ObjectMapper.Map) -> NSPredicate? {
         return defaultPredicate(attribute, map: map)
     }

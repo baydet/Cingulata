@@ -22,7 +22,6 @@
 		ACCA58306492F7A7AA0EFD06 /* NSManagedObjectContext+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */; };
 		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
-		ACCA5DCF704CC52C44DB680F /* NSURLRequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */; };
 		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -263,7 +262,6 @@
 				ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */,
 				ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */,
 				8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */,
-				ACCA5DCF704CC52C44DB680F /* NSURLRequestBuilders.swift in Sources */,
 				ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */,
 				ACCA58306492F7A7AA0EFD06 /* NSManagedObjectContext+Ext.swift in Sources */,
 			);

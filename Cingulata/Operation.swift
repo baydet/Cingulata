@@ -86,11 +86,11 @@ public class Operation: NSOperation {
 
     //MARK: execution
 
-    internal func execute() {
+    public func execute() {
         finish()
     }
 
-    internal func finish() {
+    public func finish() {
         state = .Finished
     }
 
