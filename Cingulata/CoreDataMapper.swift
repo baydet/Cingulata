@@ -93,7 +93,7 @@ public struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObjec
     private let mapper: Mapper<ObjectType> = Mapper<ObjectType>()
     private let context: NSManagedObjectContext?
 
-    init(context: NSManagedObjectContext?) {
+    public init(context: NSManagedObjectContext?) {
         self.context = context
     }
 
