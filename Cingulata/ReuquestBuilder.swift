@@ -11,7 +11,7 @@ import Alamofire
 import CoreData
 import ObjectMapper
 
-protocol RequestBuilder {
+public protocol RequestBuilder {
     var URL: NSURL { get }
     var httpMethod: Alamofire.Method { get }
     var parameters: [String : AnyObject]? { get }
@@ -20,8 +20,8 @@ protocol RequestBuilder {
     var responseMapping: [(HTTPStatusCodeGroup, String?, DataMapper)]? { get }
 }
 
-extension RequestOperation {
-    convenience init(requestBuilder: RequestBuilder) {
+public extension RequestOperation {
+    public convenience init(requestBuilder: RequestBuilder) {
         self.init(requestMethod: requestBuilder.httpMethod, parameters: requestBuilder.parameters, requestBuilder: requestBuilder.requestBuilder, requestMapping: requestBuilder.requestMapping, responseMappings: requestBuilder.responseMapping, URL: requestBuilder.URL)
     }
 }
