@@ -12,6 +12,11 @@ import ObjectMapper
 public struct UniqueAttribute {
     public let modelKey: String
     public let jsonKey: String
+    
+    public init(modelKey: String, jsonKey: String) {
+        self.modelKey = modelKey
+        self.jsonKey = jsonKey
+    }
 }
 
 public protocol CoreDataMappable: Mappable {
@@ -82,9 +87,9 @@ public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : De
     }
 }
 
-struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObject, ObjectType:CoreDataMappable>: TransformType {
-    typealias Object = ObjectType
-    typealias JSON = AnyObject
+public struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObject, ObjectType:CoreDataMappable>: TransformType {
+    public typealias Object = ObjectType
+    public typealias JSON = AnyObject
     private let mapper: Mapper<ObjectType> = Mapper<ObjectType>()
     private let context: NSManagedObjectContext?
 
@@ -92,14 +97,14 @@ struct ManagedObjectTransform<ObjectType where ObjectType: NSManagedObject, Obje
         self.context = context
     }
 
-    func transformFromJSON(value: AnyObject?) -> Object? {
+    public func transformFromJSON(value: AnyObject?) -> Object? {
         guard let ctx = context, let json = value as? [String : AnyObject] else {
             return nil
         }
         return mapObjectFromJSON(json, mapper: mapper, inContext: ctx)
     }
 
-    func transformToJSON(value: Object?) -> JSON? {
+    public func transformToJSON(value: Object?) -> JSON? {
         guard let object = value else {
             return nil
         }
