@@ -155,7 +155,7 @@ public class RequestOperation: Operation {
         }
     }
 
-    override func execute() {
+    override public func execute() {
         internalQueue.suspended = false
         operationStartDate = NSDate()
 
@@ -228,7 +228,7 @@ public class RequestOperation: Operation {
         return resultDictionary
     }
 
-    override func finish() {
+    override public func finish() {
         let interval = NSDate().timeIntervalSinceDate(operationStartDate)
         print(String(format:"\(requestMethod):\(URL.absoluteString) completed in %.3f sec.", interval))
         let requestErrors = errors.flatMap { $0 as? RequestError }
