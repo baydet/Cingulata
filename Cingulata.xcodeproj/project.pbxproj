@@ -21,8 +21,8 @@
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
 		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
 		D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D031BDFBA21008E0B6E /* CoreData.framework */; };
-		D3859D4A1BDFBC62008E0B6E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D491BDFBC62008E0B6E /* ObjectMapper.framework */; };
-		D3859D4C1BDFBC6B008E0B6E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D4B1BDFBC6B008E0B6E /* Alamofire.framework */; };
+		D3859D4F1BDFBDE9008E0B6E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D4D1BDFBDD2008E0B6E /* Alamofire.framework */; };
+		D3859D511BDFBDE9008E0B6E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D501BDFBDE9008E0B6E /* ObjectMapper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,8 @@
 		D3859D031BDFBA21008E0B6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D3859D491BDFBC62008E0B6E /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Carthage/Checkouts/ObjectMapper/build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		D3859D4B1BDFBC6B008E0B6E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		D3859D4D1BDFBDD2008E0B6E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-cpfgjajtlyhvathgpsxrmrsuuumc/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		D3859D501BDFBDE9008E0B6E /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-cpfgjajtlyhvathgpsxrmrsuuumc/Build/Products/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3859D4C1BDFBC6B008E0B6E /* Alamofire.framework in Frameworks */,
-				D3859D4A1BDFBC62008E0B6E /* ObjectMapper.framework in Frameworks */,
+				D3859D511BDFBDE9008E0B6E /* ObjectMapper.framework in Frameworks */,
+				D3859D4F1BDFBDE9008E0B6E /* Alamofire.framework in Frameworks */,
 				D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,6 +85,8 @@
 		86B9B6ED1BC069C900F48423 = {
 			isa = PBXGroup;
 			children = (
+				D3859D501BDFBDE9008E0B6E /* ObjectMapper.framework */,
+				D3859D4D1BDFBDD2008E0B6E /* Alamofire.framework */,
 				D3859D4B1BDFBC6B008E0B6E /* Alamofire.framework */,
 				D3859D491BDFBC62008E0B6E /* ObjectMapper.framework */,
 				D3859D031BDFBA21008E0B6E /* CoreData.framework */,
@@ -381,7 +385,7 @@
 		86B9B70C1BC069C900F48423 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BITCODE_GENERATION_MODE = bitcode;
+				BITCODE_GENERATION_MODE = marker;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
