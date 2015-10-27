@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8611C0201BC0F6E50005C0E7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */; };
-		8611C0211BC0F6E50005C0E7 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */; };
-		8611C0241BC0F71F0005C0E7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8611C0231BC0F71F0005C0E7 /* CoreData.framework */; };
 		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; };
 		867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */; };
 		867E66291BDCEA34002E8AEC /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E66281BDCEA34002E8AEC /* MapperTests.swift */; };
@@ -23,6 +20,7 @@
 		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
 		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
+		D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D031BDFBA21008E0B6E /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		8611C0231BC0F71F0005C0E7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
 		867E66281BDCEA34002E8AEC /* MapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
 		867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapperTests.swift; sourceTree = "<group>"; };
@@ -56,6 +51,7 @@
 		ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
 		ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
 		ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
+		D3859D031BDFBA21008E0B6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8611C0241BC0F71F0005C0E7 /* CoreData.framework in Frameworks */,
-				8611C0201BC0F6E50005C0E7 /* Alamofire.framework in Frameworks */,
-				8611C0211BC0F6E50005C0E7 /* ObjectMapper.framework in Frameworks */,
+				D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +77,7 @@
 		86B9B6ED1BC069C900F48423 = {
 			isa = PBXGroup;
 			children = (
-				8611C0231BC0F71F0005C0E7 /* CoreData.framework */,
-				8611C01E1BC0F6E50005C0E7 /* Alamofire.framework */,
-				8611C01F1BC0F6E50005C0E7 /* ObjectMapper.framework */,
+				D3859D031BDFBA21008E0B6E /* CoreData.framework */,
 				86B9B6F91BC069C900F48423 /* Cingulata */,
 				86B9B7051BC069C900F48423 /* CingulataTests */,
 				86B9B6F81BC069C900F48423 /* Products */,
