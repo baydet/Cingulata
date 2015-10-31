@@ -42,7 +42,6 @@ public enum HTTPStatusCodeGroup {
         return a == b
     }
 
-
     private func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
         switch (self, codeGroup) {
         case (.Success(let a), .Success(let b)):
@@ -86,14 +85,16 @@ private struct UnknownError: ServerErrorProtocol {
 }
 
 public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest
+public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper)
+public typealias ResponseObjectMapping = (codeGroup: HTTPStatusCodeGroup, key: String?, mapping: ObjectJSONMapper)
 
 public class RequestOperation: Operation {
     public var errorBlock: (([RequestError]) -> Void)?
     public var successBlock: (([Any]) -> Void)?
 
     private let requestMethod: Alamofire.Method
-    private let requestMapping: (String?, DataMapper)?
-    private let responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?
+    private let requestMapping: RequestObjectMapping?
+    private let responseMappings: [ResponseObjectMapping]?
     private let requestBuilder: NSURLRequestBuilder
     private let parameters: [String: AnyObject]?
     private let URL: NSURL
@@ -101,7 +102,7 @@ public class RequestOperation: Operation {
     
     private var operationStartDate: NSDate = NSDate()
 
-    public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]?, requestBuilder: NSURLRequestBuilder, requestMapping: (String?, DataMapper)?, responseMappings: [(HTTPStatusCodeGroup, String?, DataMapper)]?, URL: NSURL) {
+    public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL) {
 
         self.parameters = parameters
         self.requestMethod = requestMethod
@@ -126,7 +127,7 @@ public class RequestOperation: Operation {
 
         if let responseMappings = self.responseMappings, json = responseJSON {
             responseMappings
-                .filter { $0.0.has(codeGroup) }
+                .filter { $0.codeGroup.has(codeGroup) }
                 .forEach { _, key, mapper in
                     //
                     let mappedJSON: AnyObject?
@@ -202,14 +203,13 @@ public class RequestOperation: Operation {
     private func requestParameters() -> [String : AnyObject]? {
         var resultDictionary: [String : AnyObject]? = nil
 
-        if let rMapping = requestMapping {
-            let json = rMapping.1.mapToJSON()
-            if let key = rMapping.0 {
+        if let requestMapping = requestMapping {
+            let json = requestMapping.mapper.mapToJSON()
+            if let key = requestMapping.key {
                 resultDictionary = [:]
                 resultDictionary?[key] = json
             } else {
                 guard let jsonDict = json as? [String : AnyObject] else {
-                    assert(false, "unable to assign non dictionary to zero key")
                     return nil
                 }
                 resultDictionary = jsonDict
@@ -237,7 +237,7 @@ public class RequestOperation: Operation {
 
             errorBlock?(requestErrors)
         } else {
-            let results = responseMappings?.flatMap { $0.2.mappingResult } ?? []
+            let results = responseMappings?.flatMap { $0.mapping.mappingResult } ?? []
 
             successBlock?(results)
         }

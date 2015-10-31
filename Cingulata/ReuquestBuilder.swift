@@ -15,9 +15,9 @@ public protocol RequestBuilder {
     var URL: NSURL { get }
     var httpMethod: Alamofire.Method { get }
     var parameters: [String : AnyObject]? { get }
-    var requestMapping: (String?, DataMapper)? { get }
+    var requestMapping: RequestObjectMapping? { get }
     var requestBuilder: NSURLRequestBuilder { get }
-    var responseMapping: [(HTTPStatusCodeGroup, String?, DataMapper)]? { get }
+    var responseMapping: [ResponseObjectMapping]? { get }
 }
 
 public extension RequestOperation {

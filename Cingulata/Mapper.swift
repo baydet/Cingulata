@@ -9,8 +9,8 @@
 import CoreData
 import ObjectMapper
 
-public protocol DataMapper {
-    var mappingResult: Any? {get}
+public protocol ObjectJSONMapper {
+    var mappingResult: Any? { get }
     func mapToJSON() -> AnyObject?
     func mapToObject(json: AnyObject?) throws
 }
@@ -29,7 +29,7 @@ public enum SourceObjectType<S> {
     case Array([S])
 }
 
-public class DefaultMapper<T: Mappable>: DataMapper {
+public class DefaultMapper<T: Mappable>: ObjectJSONMapper {
     private let expectedResultType: ExpectedResultType
     public private(set) var mappingResult: Any?
 

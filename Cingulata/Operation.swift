@@ -17,7 +17,6 @@ extension NSLock {
     }
 }
 
-
 public class Operation: NSOperation {
 
     //MARK: operaton state management
