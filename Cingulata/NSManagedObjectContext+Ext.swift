@@ -11,7 +11,7 @@ internal extension NSManagedObjectContext {
         if let fetchRequest = fetchRequest(entityType: entityType) {
             fetchRequest.predicate = predicate
 
-            return performFetchRequest(request: fetchRequest, entityType: entityType)
+            return performFetchRequest(request: fetchRequest)
         } else {
             return []
         }
@@ -37,7 +37,7 @@ internal extension NSManagedObjectContext {
         }
     }
 
-    func performFetchRequest<T : NSManagedObject>(request request: NSFetchRequest, entityType: T.Type) -> [T] {
+    func performFetchRequest<T : NSManagedObject>(request request: NSFetchRequest) -> [T] {
 
         let requestThread = NSThread.currentThread()
         var resultArray: [AnyObject]?
@@ -63,8 +63,8 @@ internal extension NSManagedObjectContext {
         }
     }
 
-    func insert<T : NSManagedObject>(entityType entityType: T.Type) -> T? {
-        if let description = entityDescription(entityType: entityType) {
+    func insert<T : NSManagedObject>() -> T? {
+        if let description = entityDescription(entityType: T.self) {
             let obj = NSManagedObject(entity: description, insertIntoManagedObjectContext: self) as! T
             return obj
         } else {

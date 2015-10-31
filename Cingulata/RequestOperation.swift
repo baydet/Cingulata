@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import CoreData
 
-
 public enum HTTPStatusCodeGroup {
     case NoCode
     case Success(HTTPStatusCode?)

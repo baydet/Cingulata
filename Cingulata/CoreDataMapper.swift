@@ -124,7 +124,7 @@ private func mapObjectFromJSON<T where T: NSManagedObject, T: CoreDataMappable>(
         }
 
         guard let cachedObject = cachedObjects.first else {
-            guard let newObject = context.insert(entityType: T.self) else {
+            guard let newObject: T = context.insert() else {
                 return nil
             }
             mapper.map(jsonDictionary, toObject: newObject)
@@ -133,7 +133,7 @@ private func mapObjectFromJSON<T where T: NSManagedObject, T: CoreDataMappable>(
         mapper.map(jsonDictionary, toObject: cachedObject)
         return cachedObject
     }
-    guard let object = context.insert(entityType: T.self) else {
+    guard let object: T = context.insert() else {
         return nil
     }
     mapper.map(jsonDictionary, toObject: object)

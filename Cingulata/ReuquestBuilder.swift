@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import CoreData
 import ObjectMapper
 
 public protocol RequestBuilder {
