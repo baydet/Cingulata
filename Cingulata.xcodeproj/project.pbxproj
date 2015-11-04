@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; };
+		861626D01BE965E900B24083 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861626CE1BE965E900B24083 /* Alamofire.framework */; };
+		861626D11BE965E900B24083 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861626CF1BE965E900B24083 /* ObjectMapper.framework */; };
 		867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */; };
 		867E66291BDCEA34002E8AEC /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E66281BDCEA34002E8AEC /* MapperTests.swift */; };
 		867E662B1BDCEFF6002E8AEC /* CoreDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */; };
@@ -20,8 +22,6 @@
 		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
 		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
 		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
-		D32EB3E21BDFC91600C0CD38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32EB3E01BDFC91600C0CD38 /* Alamofire.framework */; };
-		D32EB3E31BDFC91600C0CD38 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32EB3E11BDFC91600C0CD38 /* ObjectMapper.framework */; };
 		D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D031BDFBA21008E0B6E /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
+		861626CE1BE965E900B24083 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-ddkiqgwilovbiobbgdqyodfkoxdh/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		861626CF1BE965E900B24083 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-ddkiqgwilovbiobbgdqyodfkoxdh/Build/Products/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		867E66281BDCEA34002E8AEC /* MapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
 		867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapperTests.swift; sourceTree = "<group>"; };
 		867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperationTests.swift; sourceTree = "<group>"; };
@@ -53,8 +55,6 @@
 		ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
 		ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
 		ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
-		D32EB3E01BDFC91600C0CD38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-cpfgjajtlyhvathgpsxrmrsuuumc/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		D32EB3E11BDFC91600C0CD38 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-cpfgjajtlyhvathgpsxrmrsuuumc/Build/Products/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		D3859D031BDFBA21008E0B6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -63,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D32EB3E21BDFC91600C0CD38 /* Alamofire.framework in Frameworks */,
-				D32EB3E31BDFC91600C0CD38 /* ObjectMapper.framework in Frameworks */,
+				861626D01BE965E900B24083 /* Alamofire.framework in Frameworks */,
+				861626D11BE965E900B24083 /* ObjectMapper.framework in Frameworks */,
 				D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,8 +83,8 @@
 		86B9B6ED1BC069C900F48423 = {
 			isa = PBXGroup;
 			children = (
-				D32EB3E01BDFC91600C0CD38 /* Alamofire.framework */,
-				D32EB3E11BDFC91600C0CD38 /* ObjectMapper.framework */,
+				861626CE1BE965E900B24083 /* Alamofire.framework */,
+				861626CF1BE965E900B24083 /* ObjectMapper.framework */,
 				D3859D031BDFBA21008E0B6E /* CoreData.framework */,
 				86B9B6F91BC069C900F48423 /* Cingulata */,
 				86B9B7051BC069C900F48423 /* CingulataTests */,
@@ -374,7 +374,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Cingulata/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@rpath";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.Cingulata;
@@ -399,7 +399,7 @@
 					"$(PROJECT_DIR)/Carthage/Checkouts/Alamofire/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = Cingulata/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@rpath";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.Cingulata;
