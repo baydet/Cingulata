@@ -1,2 +1,2 @@
-github "baydet/ObjectMapper" "master"
+github "baydet/ObjectMapper" "dev"
 github "Alamofire/Alamofire" ~> 3.0
