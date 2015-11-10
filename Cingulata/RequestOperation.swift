@@ -16,8 +16,9 @@ public enum HTTPStatusCodeGroup {
     case Client(HTTPStatusCode?)
     case Server(HTTPStatusCode?)
 
-    init?(code: HTTPStatusCode) {
-        switch code.rawValue {
+    init?(intCode: Int) {
+        let code = HTTPStatusCode(rawValue: intCode)
+        switch intCode {
         case 0:
             self = .NoCode
         case 200...299:
@@ -98,7 +99,7 @@ public class RequestOperation: Operation {
     private let parameters: [String: AnyObject]?
     private let URL: NSURL
     private let internalQueue = NSOperationQueue()
-    
+
     private var operationStartDate: NSDate = NSDate()
 
     public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL) {
@@ -119,7 +120,7 @@ public class RequestOperation: Operation {
     }
 
     private func map(statusCode: Int, responseJSON: AnyObject?) {
-        guard let statusCodeValue = HTTPStatusCode(rawValue: statusCode), codeGroup = HTTPStatusCodeGroup(code: statusCodeValue) else {
+        guard let codeGroup = HTTPStatusCodeGroup(intCode: statusCode) else {
             print("unexpected status code value")
             return
         }
