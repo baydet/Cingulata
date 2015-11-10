@@ -68,17 +68,27 @@ public enum HTTPStatusCode: Int {
     case InternalServerError = 500
 }
 
-public protocol ServerErrorProtocol: ErrorType {
+public protocol CinErrorProtocol: ErrorType {
     var message: String { get }
 }
 
 public enum RequestError: ErrorType {
     case BuildRequestError(message: String)
-    case HTTPRequestError(HTTPStatusCodeGroup, ServerErrorProtocol)
+    case HTTPRequestError(HTTPStatusCodeGroup, CinErrorProtocol)
     case MappingError(MapperError)
 }
 
-private struct UnknownError: ServerErrorProtocol {
+public struct URLRequestError: CinErrorProtocol {
+    public let message: String
+    public let error: NSError
+    
+    init(error: NSError) {
+        message = error.localizedDescription
+        self.error = error
+    }
+}
+
+private struct UnknownError: CinErrorProtocol {
     var message: String {
         return "Unknown error"
     }
@@ -150,7 +160,7 @@ public class RequestOperation: Operation {
         }
 
         if HTTPStatusCodeGroup.Server(nil).has(codeGroup) || HTTPStatusCodeGroup.Client(nil).has(codeGroup) {
-            let error = self.responseMappings?.flatMap{_, _, mapper in mapper.mappingResult as? ServerErrorProtocol}.first
+            let error = self.responseMappings?.flatMap{_, _, mapper in mapper.mappingResult as? CinErrorProtocol }.first
 
             errors.append(RequestError.HTTPRequestError(codeGroup, error ?? UnknownError()))
         }
@@ -164,10 +174,15 @@ public class RequestOperation: Operation {
             let URLRequest = try requestBuilder(parameters: requestParameters(), HTTPMethod: requestMethod.rawValue, URL: URL)
             let httpOperation = AlamofireOperation(request: URLRequest)
             httpOperation.completionBlock = { [weak self] in
-                self?.errors += httpOperation.errors
+                self?.errors += (httpOperation.errors
+                                                .flatMap { $0 as NSError }
+                                                .flatMap { RequestError.HTTPRequestError(HTTPStatusCodeGroup.NoCode, URLRequestError(error: $0)) }) as [ErrorType]
             }
 
             let mappingOperation = NSBlockOperation(){ [weak self] in
+                guard self?.errors.count == 0 else {
+                    return
+                }
                 guard let statusCode = httpOperation.statusCode else {
                     self?.errors.append(RequestError.HTTPRequestError(.NoCode, UnknownError()))
 

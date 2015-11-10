@@ -28,8 +28,8 @@ class AlamofireOperation: Operation {
             switch response.result {
             case .Success(let value):
                 self.responseJSON = value
-            default:
-                break;
+            case .Failure(let error):
+                self.errors.append(error)
             }
 
             self.finish()
