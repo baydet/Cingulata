@@ -7,151 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */; };
-		861626D01BE965E900B24083 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861626CE1BE965E900B24083 /* Alamofire.framework */; };
-		861626D11BE965E900B24083 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 861626CF1BE965E900B24083 /* ObjectMapper.framework */; };
-		867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */; };
-		867E66291BDCEA34002E8AEC /* MapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E66281BDCEA34002E8AEC /* MapperTests.swift */; };
-		867E662B1BDCEFF6002E8AEC /* CoreDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */; };
-		867E662D1BDCF076002E8AEC /* RequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */; };
-		86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = 86B9B6FA1BC069C900F48423 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B9B6F71BC069C900F48423 /* Cingulata.framework */; };
-		86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B9B7061BC069C900F48423 /* CingulataTests.swift */; };
-		ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */; };
-		ACCA58306492F7A7AA0EFD06 /* NSManagedObjectContext+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */; };
-		ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */; };
-		ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */; };
-		ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCA570E92336EBEB87FD731 /* Mapper.swift */; };
-		D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3859D031BDFBA21008E0B6E /* CoreData.framework */; };
+		D381899F1BF1F94C008C6142 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = D381899E1BF1F94C008C6142 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D38189AE1BF1F998008C6142 /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A61BF1F998008C6142 /* AlamofireOperation.swift */; };
+		D38189AF1BF1F998008C6142 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A71BF1F998008C6142 /* CoreDataMapper.swift */; };
+		D38189B01BF1F998008C6142 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A81BF1F998008C6142 /* Mapper.swift */; };
+		D38189B11BF1F998008C6142 /* NSManagedObjectContext+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */; };
+		D38189B21BF1F998008C6142 /* NSURLRequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */; };
+		D38189B31BF1F998008C6142 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AB1BF1F998008C6142 /* Operation.swift */; };
+		D38189B41BF1F998008C6142 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AC1BF1F998008C6142 /* RequestOperation.swift */; };
+		D38189B51BF1F998008C6142 /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AD1BF1F998008C6142 /* ReuquestBuilder.swift */; };
+		D38189B71BF1F9D6008C6142 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */; };
+		D38189B91BF1F9DE008C6142 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189B81BF1F9DE008C6142 /* Alamofire.framework */; };
+		D38189BB1BF1FA2B008C6142 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189BA1BF1FA2B008C6142 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		86B9B7031BC069C900F48423 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 86B9B6EE1BC069C900F48423 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 86B9B6F61BC069C900F48423;
-			remoteInfo = Cingulata;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
-		861626CE1BE965E900B24083 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-ddkiqgwilovbiobbgdqyodfkoxdh/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		861626CF1BE965E900B24083 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "../../../Library/Developer/Xcode/DerivedData/Cingulata-ddkiqgwilovbiobbgdqyodfkoxdh/Build/Products/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
-		867E66281BDCEA34002E8AEC /* MapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapperTests.swift; sourceTree = "<group>"; };
-		867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapperTests.swift; sourceTree = "<group>"; };
-		867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperationTests.swift; sourceTree = "<group>"; };
-		86B9B6F71BC069C900F48423 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		86B9B6FA1BC069C900F48423 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
-		86B9B6FC1BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		86B9B7011BC069C900F48423 /* CingulataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CingulataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		86B9B7061BC069C900F48423 /* CingulataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CingulataTests.swift; sourceTree = "<group>"; };
-		86B9B7081BC069C900F48423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestBuilders.swift; sourceTree = "<group>"; };
-		ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
-		ACCA570E92336EBEB87FD731 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
-		ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
-		ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
-		D3859D031BDFBA21008E0B6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D381899B1BF1F94C008C6142 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D381899E1BF1F94C008C6142 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
+		D38189A01BF1F94C008C6142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D38189A61BF1F998008C6142 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
+		D38189A71BF1F998008C6142 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
+		D38189A81BF1F998008C6142 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
+		D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
+		D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestBuilders.swift; sourceTree = "<group>"; };
+		D38189AB1BF1F998008C6142 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		D38189AC1BF1F998008C6142 /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
+		D38189AD1BF1F998008C6142 /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
+		D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Carthage/Checkouts/ObjectMapper/build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
+		D38189B81BF1F9DE008C6142 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		D38189BA1BF1FA2B008C6142 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		86B9B6F31BC069C900F48423 /* Frameworks */ = {
+		D38189971BF1F94C008C6142 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861626D01BE965E900B24083 /* Alamofire.framework in Frameworks */,
-				861626D11BE965E900B24083 /* ObjectMapper.framework in Frameworks */,
-				D3859D041BDFBA21008E0B6E /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86B9B6FE1BC069C900F48423 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				86B9B7021BC069C900F48423 /* Cingulata.framework in Frameworks */,
+				D38189BB1BF1FA2B008C6142 /* CoreData.framework in Frameworks */,
+				D38189B91BF1F9DE008C6142 /* Alamofire.framework in Frameworks */,
+				D38189B71BF1F9D6008C6142 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		86B9B6ED1BC069C900F48423 = {
+		D38189911BF1F94C008C6142 = {
 			isa = PBXGroup;
 			children = (
-				861626CE1BE965E900B24083 /* Alamofire.framework */,
-				861626CF1BE965E900B24083 /* ObjectMapper.framework */,
-				D3859D031BDFBA21008E0B6E /* CoreData.framework */,
-				86B9B6F91BC069C900F48423 /* Cingulata */,
-				86B9B7051BC069C900F48423 /* CingulataTests */,
-				86B9B6F81BC069C900F48423 /* Products */,
+				D38189BA1BF1FA2B008C6142 /* CoreData.framework */,
+				D38189B81BF1F9DE008C6142 /* Alamofire.framework */,
+				D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */,
+				D381899D1BF1F94C008C6142 /* Cingulata */,
+				D381899C1BF1F94C008C6142 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		86B9B6F81BC069C900F48423 /* Products */ = {
+		D381899C1BF1F94C008C6142 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				86B9B6F71BC069C900F48423 /* Cingulata.framework */,
-				86B9B7011BC069C900F48423 /* CingulataTests.xctest */,
+				D381899B1BF1F94C008C6142 /* Cingulata.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		86B9B6F91BC069C900F48423 /* Cingulata */ = {
+		D381899D1BF1F94C008C6142 /* Cingulata */ = {
 			isa = PBXGroup;
 			children = (
-				86B9B6FA1BC069C900F48423 /* Cingulata.h */,
-				86B9B6FC1BC069C900F48423 /* Info.plist */,
-				ACCA5EDAC2C63242C07711A6 /* AlamofireOperation.swift */,
-				ACCA5C8FCC750A4E41E22ECA /* ReuquestBuilder.swift */,
-				ACCA570E92336EBEB87FD731 /* Mapper.swift */,
-				ACCA5C4EB6B9A0C3EF4EA512 /* Operation.swift */,
-				ACCA501374621BA1A70D9F95 /* NSURLRequestBuilders.swift */,
-				ACCA55CEB70F8F8A32B91C3C /* RequestOperation.swift */,
-				8611C0251BC0FC810005C0E7 /* CoreDataMapper.swift */,
-				ACCA5E9AAC25758401579AF5 /* NSManagedObjectContext+Ext.swift */,
+				D38189A61BF1F998008C6142 /* AlamofireOperation.swift */,
+				D38189A71BF1F998008C6142 /* CoreDataMapper.swift */,
+				D38189A81BF1F998008C6142 /* Mapper.swift */,
+				D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */,
+				D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */,
+				D38189AB1BF1F998008C6142 /* Operation.swift */,
+				D38189AC1BF1F998008C6142 /* RequestOperation.swift */,
+				D38189AD1BF1F998008C6142 /* ReuquestBuilder.swift */,
+				D381899E1BF1F94C008C6142 /* Cingulata.h */,
+				D38189A01BF1F94C008C6142 /* Info.plist */,
 			);
 			path = Cingulata;
-			sourceTree = "<group>";
-		};
-		86B9B7051BC069C900F48423 /* CingulataTests */ = {
-			isa = PBXGroup;
-			children = (
-				86B9B7061BC069C900F48423 /* CingulataTests.swift */,
-				86B9B7081BC069C900F48423 /* Info.plist */,
-				867E66281BDCEA34002E8AEC /* MapperTests.swift */,
-				867E662A1BDCEFF6002E8AEC /* CoreDataMapperTests.swift */,
-				867E662C1BDCF076002E8AEC /* RequestOperationTests.swift */,
-			);
-			path = CingulataTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		86B9B6F41BC069C900F48423 /* Headers */ = {
+		D38189981BF1F94C008C6142 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B9B6FB1BC069C900F48423 /* Cingulata.h in Headers */,
+				D381899F1BF1F94C008C6142 /* Cingulata.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		86B9B6F61BC069C900F48423 /* Cingulata */ = {
+		D381899A1BF1F94C008C6142 /* Cingulata */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86B9B70B1BC069C900F48423 /* Build configuration list for PBXNativeTarget "Cingulata" */;
+			buildConfigurationList = D38189A31BF1F94C008C6142 /* Build configuration list for PBXNativeTarget "Cingulata" */;
 			buildPhases = (
-				86B9B6F21BC069C900F48423 /* Sources */,
-				86B9B6F41BC069C900F48423 /* Headers */,
-				86B9B6F51BC069C900F48423 /* Resources */,
-				86B9B6F31BC069C900F48423 /* Frameworks */,
+				D38189961BF1F94C008C6142 /* Sources */,
+				D38189971BF1F94C008C6142 /* Frameworks */,
+				D38189981BF1F94C008C6142 /* Headers */,
+				D38189991BF1F94C008C6142 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -159,71 +117,42 @@
 			);
 			name = Cingulata;
 			productName = Cingulata;
-			productReference = 86B9B6F71BC069C900F48423 /* Cingulata.framework */;
+			productReference = D381899B1BF1F94C008C6142 /* Cingulata.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		86B9B7001BC069C900F48423 /* CingulataTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 86B9B70E1BC069C900F48423 /* Build configuration list for PBXNativeTarget "CingulataTests" */;
-			buildPhases = (
-				86B9B6FD1BC069C900F48423 /* Sources */,
-				86B9B6FE1BC069C900F48423 /* Frameworks */,
-				86B9B6FF1BC069C900F48423 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				86B9B7041BC069C900F48423 /* PBXTargetDependency */,
-			);
-			name = CingulataTests;
-			productName = CingulataTests;
-			productReference = 86B9B7011BC069C900F48423 /* CingulataTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		86B9B6EE1BC069C900F48423 /* Project object */ = {
+		D38189921BF1F94C008C6142 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = baydet;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Alexander Evsyuchenya";
 				TargetAttributes = {
-					86B9B6F61BC069C900F48423 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					86B9B7001BC069C900F48423 = {
-						CreatedOnToolsVersion = 7.0;
+					D381899A1BF1F94C008C6142 = {
+						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
-			buildConfigurationList = 86B9B6F11BC069C900F48423 /* Build configuration list for PBXProject "Cingulata" */;
+			buildConfigurationList = D38189951BF1F94C008C6142 /* Build configuration list for PBXProject "Cingulata" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 86B9B6ED1BC069C900F48423;
-			productRefGroup = 86B9B6F81BC069C900F48423 /* Products */;
+			mainGroup = D38189911BF1F94C008C6142;
+			productRefGroup = D381899C1BF1F94C008C6142 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				86B9B6F61BC069C900F48423 /* Cingulata */,
-				86B9B7001BC069C900F48423 /* CingulataTests */,
+				D381899A1BF1F94C008C6142 /* Cingulata */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		86B9B6F51BC069C900F48423 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86B9B6FF1BC069C900F48423 /* Resources */ = {
+		D38189991BF1F94C008C6142 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,43 +162,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		86B9B6F21BC069C900F48423 /* Sources */ = {
+		D38189961BF1F94C008C6142 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				867E66271BDCDFFC002E8AEC /* ReuquestBuilder.swift in Sources */,
-				ACCA530FE8720C3740BF6CDF /* AlamofireOperation.swift in Sources */,
-				ACCA5E13AB5491FFAECE55CD /* Mapper.swift in Sources */,
-				ACCA5CF2C5E75C5E736027DF /* Operation.swift in Sources */,
-				8611C0261BC0FC810005C0E7 /* CoreDataMapper.swift in Sources */,
-				ACCA5CE85733B53026FE54FF /* RequestOperation.swift in Sources */,
-				ACCA58306492F7A7AA0EFD06 /* NSManagedObjectContext+Ext.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86B9B6FD1BC069C900F48423 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				867E66291BDCEA34002E8AEC /* MapperTests.swift in Sources */,
-				86B9B7071BC069C900F48423 /* CingulataTests.swift in Sources */,
-				867E662B1BDCEFF6002E8AEC /* CoreDataMapperTests.swift in Sources */,
-				867E662D1BDCF076002E8AEC /* RequestOperationTests.swift in Sources */,
+				D38189AE1BF1F998008C6142 /* AlamofireOperation.swift in Sources */,
+				D38189B01BF1F998008C6142 /* Mapper.swift in Sources */,
+				D38189B11BF1F998008C6142 /* NSManagedObjectContext+Ext.swift in Sources */,
+				D38189AF1BF1F998008C6142 /* CoreDataMapper.swift in Sources */,
+				D38189B21BF1F998008C6142 /* NSURLRequestBuilders.swift in Sources */,
+				D38189B51BF1F998008C6142 /* ReuquestBuilder.swift in Sources */,
+				D38189B31BF1F998008C6142 /* Operation.swift in Sources */,
+				D38189B41BF1F998008C6142 /* RequestOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		86B9B7041BC069C900F48423 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 86B9B6F61BC069C900F48423 /* Cingulata */;
-			targetProxy = 86B9B7031BC069C900F48423 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		86B9B7091BC069C900F48423 /* Debug */ = {
+		D38189A11BF1F94C008C6142 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -286,7 +197,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -318,7 +228,7 @@
 			};
 			name = Debug;
 		};
-		86B9B70A1BC069C900F48423 /* Release */ = {
+		D38189A21BF1F94C008C6142 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -335,8 +245,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -360,104 +269,69 @@
 			};
 			name = Release;
 		};
-		86B9B70C1BC069C900F48423 /* Debug */ = {
+		D38189A41BF1F94C008C6142 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				BITCODE_GENERATION_MODE = marker;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Cingulata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.Cingulata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		86B9B70D1BC069C900F48423 /* Release */ = {
+		D38189A51BF1F94C008C6142 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				BITCODE_GENERATION_MODE = bitcode;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Cingulata/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.Cingulata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		86B9B70F1BC069C900F48423 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CingulataTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.CingulataTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		86B9B7101BC069C900F48423 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CingulataTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.CingulataTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		86B9B6F11BC069C900F48423 /* Build configuration list for PBXProject "Cingulata" */ = {
+		D38189951BF1F94C008C6142 /* Build configuration list for PBXProject "Cingulata" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				86B9B7091BC069C900F48423 /* Debug */,
-				86B9B70A1BC069C900F48423 /* Release */,
+				D38189A11BF1F94C008C6142 /* Debug */,
+				D38189A21BF1F94C008C6142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86B9B70B1BC069C900F48423 /* Build configuration list for PBXNativeTarget "Cingulata" */ = {
+		D38189A31BF1F94C008C6142 /* Build configuration list for PBXNativeTarget "Cingulata" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				86B9B70C1BC069C900F48423 /* Debug */,
-				86B9B70D1BC069C900F48423 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		86B9B70E1BC069C900F48423 /* Build configuration list for PBXNativeTarget "CingulataTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				86B9B70F1BC069C900F48423 /* Debug */,
-				86B9B7101BC069C900F48423 /* Release */,
+				D38189A41BF1F94C008C6142 /* Debug */,
+				D38189A51BF1F94C008C6142 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 86B9B6EE1BC069C900F48423 /* Project object */;
+	rootObject = D38189921BF1F94C008C6142 /* Project object */;
 }

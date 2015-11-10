@@ -2,8 +2,8 @@
 //  Cingulata.h
 //  Cingulata
 //
-//  Created by Alexander Evsyuchenya on 10/3/15.
-//  Copyright © 2015 baydet. All rights reserved.
+//  Created by Alexander Evsyuchenya on 11/10/15.
+//  Copyright © 2015 Alexander Evsyuchenya. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
