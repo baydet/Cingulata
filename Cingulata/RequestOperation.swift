@@ -65,6 +65,7 @@ public enum HTTPStatusCode: Int {
     case Unauthorized = 401
     case Forbidden = 403
     case NotFound = 404
+    case Conflict = 409
     case InternalServerError = 500
 }
 
@@ -173,10 +174,16 @@ public class RequestOperation: Operation {
         do {
             let URLRequest = try requestBuilder(parameters: requestParameters(), HTTPMethod: requestMethod.rawValue, URL: URL)
             let httpOperation = AlamofireOperation(request: URLRequest)
-            httpOperation.completionBlock = { [weak self] in
+            httpOperation.completionBlock = { [weak self, unowned httpOperation] in
+                if let statusCode = httpOperation.statusCode, group = HTTPStatusCodeGroup(intCode: statusCode) {
+                    guard HTTPStatusCodeGroup.Server(nil).has(group) || HTTPStatusCodeGroup.Client(nil).has(group) || HTTPStatusCodeGroup.NoCode.has(group) else {
+                        return
+                    }
+                }
+                
                 self?.errors += (httpOperation.errors
-                                                .flatMap { $0 as NSError }
-                                                .flatMap { RequestError.HTTPRequestError(HTTPStatusCodeGroup.NoCode, URLRequestError(error: $0)) }) as [ErrorType]
+                    .flatMap { $0 as NSError }
+                    .flatMap { RequestError.HTTPRequestError(HTTPStatusCodeGroup.NoCode, URLRequestError(error: $0)) }) as [ErrorType]
             }
 
             let mappingOperation = NSBlockOperation(){ [weak self] in
