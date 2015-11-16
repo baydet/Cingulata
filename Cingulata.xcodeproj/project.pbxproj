@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86C924211BFA6737003864A7 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C924201BFA6737003864A7 /* CingulataTests.swift */; };
+		86C924231BFA6737003864A7 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D381899B1BF1F94C008C6142 /* Cingulata.framework */; };
+		86C9242A1BFA6750003864A7 /* RequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C924291BFA6750003864A7 /* RequestOperationTests.swift */; };
+		86C9242C1BFA69B0003864A7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C9242B1BFA69B0003864A7 /* ApiClient.swift */; };
 		D381899F1BF1F94C008C6142 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = D381899E1BF1F94C008C6142 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D38189AE1BF1F998008C6142 /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A61BF1F998008C6142 /* AlamofireOperation.swift */; };
 		D38189AF1BF1F998008C6142 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A71BF1F998008C6142 /* CoreDataMapper.swift */; };
@@ -21,7 +25,22 @@
 		D38189BB1BF1FA2B008C6142 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189BA1BF1FA2B008C6142 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		86C924241BFA6737003864A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D38189921BF1F94C008C6142 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D381899A1BF1F94C008C6142;
+			remoteInfo = Cingulata;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		86C9241E1BFA6737003864A7 /* CingulataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CingulataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86C924201BFA6737003864A7 /* CingulataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CingulataTests.swift; sourceTree = "<group>"; };
+		86C924221BFA6737003864A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86C924291BFA6750003864A7 /* RequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperationTests.swift; sourceTree = "<group>"; };
+		86C9242B1BFA69B0003864A7 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		D381899B1BF1F94C008C6142 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D381899E1BF1F94C008C6142 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
 		D38189A01BF1F94C008C6142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +58,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		86C9241B1BFA6737003864A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86C924231BFA6737003864A7 /* Cingulata.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D38189971BF1F94C008C6142 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,6 +79,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86C9241F1BFA6737003864A7 /* CingulataTests */ = {
+			isa = PBXGroup;
+			children = (
+				86C924201BFA6737003864A7 /* CingulataTests.swift */,
+				86C924221BFA6737003864A7 /* Info.plist */,
+				86C924291BFA6750003864A7 /* RequestOperationTests.swift */,
+				86C9242B1BFA69B0003864A7 /* ApiClient.swift */,
+			);
+			path = CingulataTests;
+			sourceTree = "<group>";
+		};
 		D38189911BF1F94C008C6142 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +97,7 @@
 				D38189B81BF1F9DE008C6142 /* Alamofire.framework */,
 				D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */,
 				D381899D1BF1F94C008C6142 /* Cingulata */,
+				86C9241F1BFA6737003864A7 /* CingulataTests */,
 				D381899C1BF1F94C008C6142 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D381899B1BF1F94C008C6142 /* Cingulata.framework */,
+				86C9241E1BFA6737003864A7 /* CingulataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +142,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		86C9241D1BFA6737003864A7 /* CingulataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86C924281BFA6737003864A7 /* Build configuration list for PBXNativeTarget "CingulataTests" */;
+			buildPhases = (
+				86C9241A1BFA6737003864A7 /* Sources */,
+				86C9241B1BFA6737003864A7 /* Frameworks */,
+				86C9241C1BFA6737003864A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86C924251BFA6737003864A7 /* PBXTargetDependency */,
+			);
+			name = CingulataTests;
+			productName = CingulataTests;
+			productReference = 86C9241E1BFA6737003864A7 /* CingulataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D381899A1BF1F94C008C6142 /* Cingulata */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D38189A31BF1F94C008C6142 /* Build configuration list for PBXNativeTarget "Cingulata" */;
@@ -126,9 +184,13 @@
 		D38189921BF1F94C008C6142 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Alexander Evsyuchenya";
 				TargetAttributes = {
+					86C9241D1BFA6737003864A7 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					D381899A1BF1F94C008C6142 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -147,11 +209,19 @@
 			projectRoot = "";
 			targets = (
 				D381899A1BF1F94C008C6142 /* Cingulata */,
+				86C9241D1BFA6737003864A7 /* CingulataTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		86C9241C1BFA6737003864A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D38189991BF1F94C008C6142 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,6 +232,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		86C9241A1BFA6737003864A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86C924211BFA6737003864A7 /* CingulataTests.swift in Sources */,
+				86C9242A1BFA6750003864A7 /* RequestOperationTests.swift in Sources */,
+				86C9242C1BFA69B0003864A7 /* ApiClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D38189961BF1F94C008C6142 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,7 +259,39 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		86C924251BFA6737003864A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D381899A1BF1F94C008C6142 /* Cingulata */;
+			targetProxy = 86C924241BFA6737003864A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		86C924261BFA6737003864A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CingulataTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.CingulataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		86C924271BFA6737003864A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = CingulataTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = by.baydet.CingulataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		D38189A11BF1F94C008C6142 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,6 +425,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		86C924281BFA6737003864A7 /* Build configuration list for PBXNativeTarget "CingulataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86C924261BFA6737003864A7 /* Debug */,
+				86C924271BFA6737003864A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D38189951BF1F94C008C6142 /* Build configuration list for PBXProject "Cingulata" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

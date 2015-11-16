@@ -12,7 +12,7 @@ import ObjectMapper
 
 public protocol RequestBuilder {
     var URL: NSURL { get }
-    var httpMethod: Alamofire.Method { get }
+    var httpMethod: Method { get }
     var parameters: [String : AnyObject]? { get }
     var requestMapping: RequestObjectMapping? { get }
     var requestBuilder: NSURLRequestBuilder { get }

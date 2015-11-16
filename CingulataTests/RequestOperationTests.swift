@@ -2,14 +2,12 @@
 //  RequestOperationTests.swift
 //  Cingulata
 //
-//  Created by Alexandr Evsyuchenya on 10/25/15.
-//  Copyright © 2015 baydet. All rights reserved.
+//  Created by Alexandr Evsyuchenya on 11/16/15.
+//  Copyright © 2015 Alexander Evsyuchenya. All rights reserved.
 //
 
 import XCTest
-//todo to test
-//public var errorBlock: (([RequestError]) -> Void)?
-//public var successBlock: (([Any]) -> Void)?
+@testable import Cingulata
 
 class RequestOperationTests: XCTestCase {
     
@@ -23,15 +21,27 @@ class RequestOperationTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+    func testFailureBlock() {
+        let expectation = expectationWithDescription("GET request should return 404")
+        let operation = RequestOperation(requestBuilder: Endpoint.NotFound)
+        var errors: [RequestError] = []
+        operation.errorBlock = { _errors in
+            errors = _errors
+            expectation.fulfill()
+        }
+        operation.successBlock = { results in
+            print(results)
+        }
+        operation.start()
+        waitForExpectationsWithTimeout(10, handler: nil)
+        
+        XCTAssertEqual(errors.count, 1)
+        let error = errors.first!
+        switch error {
+        case .HTTPRequestError(let group, _):
+            XCTAssert(HTTPStatusCodeGroup.Client(.NotFound).has(group), "wrong code")
+        default:
+            XCTAssertFalse(false, "wrong error type")
         }
     }
     

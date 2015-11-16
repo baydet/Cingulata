@@ -32,7 +32,7 @@ public enum HTTPStatusCodeGroup {
         }
     }
 
-    private func compareCodes(a: HTTPStatusCode?,_ b: HTTPStatusCode?) -> Bool {
+    func compareCodes(a: HTTPStatusCode?,_ b: HTTPStatusCode?) -> Bool {
         guard let a = a else {
             return true
         }
@@ -42,7 +42,7 @@ public enum HTTPStatusCodeGroup {
         return a == b
     }
 
-    private func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
+    func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
         switch (self, codeGroup) {
         case (.Success(let a), .Success(let b)):
             return compareCodes(a, b)
@@ -95,6 +95,7 @@ private struct UnknownError: CinErrorProtocol {
     }
 }
 
+public typealias Method = Alamofire.Method
 public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest
 public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper)
 public typealias ResponseObjectMapping = (codeGroup: HTTPStatusCodeGroup, key: String?, mapping: ObjectJSONMapper)
@@ -113,7 +114,7 @@ public class RequestOperation: Operation {
 
     private var operationStartDate: NSDate = NSDate()
 
-    public required init(requestMethod: Alamofire.Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL) {
+    public required init(requestMethod: Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL) {
 
         self.parameters = parameters
         self.requestMethod = requestMethod
