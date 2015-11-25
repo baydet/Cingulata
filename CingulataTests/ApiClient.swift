@@ -18,7 +18,7 @@ enum Endpoint: RequestBuilder {
         let path: String!
         switch self {
         case .NotFound:
-            path = "notFound"
+            path = "status/404"
         }
         return NSURL(string: path, relativeToURL: NSURL(string: "https://httpbin.org"))!
     }
