@@ -1,2 +1,2 @@
-github "Hearst-DD/ObjectMapper" ~> 1.0
+github "baydet/ObjectMapper" "currentValue-on-Map-init"
 github "Alamofire/Alamofire" ~> 3.0
