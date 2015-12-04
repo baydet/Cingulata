@@ -23,15 +23,15 @@ class AlamofireOperation: Operation {
     override func execute() {
 
         request = Alamofire.request(urlRequest)
-        request?.responseJSON() { [unowned self]  response  in
-            self.statusCode = response.response?.statusCode
-            switch response.result {
-            case .Success(let value):
-                self.responseJSON = value
-            case .Failure(let error):
+        request?.response() { [unowned self]  request, response, data, error in
+            self.statusCode = response?.statusCode
+            if let error = error {
                 self.errors.append(error)
             }
-
+            if let data = data {
+                self.responseJSON = try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            }
+            
             self.finish()
         }
 
