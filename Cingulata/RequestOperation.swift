@@ -56,12 +56,14 @@ public enum HTTPStatusCodeGroup {
     }
 }
 
+/**
+ Enum for HTTP status codes
+ */
 public enum HTTPStatusCode: Int {
     case NoStatusCode = 0
     case OK = 200
     case Created = 201
     case NoContent = 204
-
     case BadRequest = 400
     case Unauthorized = 401
     case PaymentRequired = 402
@@ -76,16 +78,29 @@ public enum HTTPStatusCode: Int {
     case InternalServerError = 500
 }
 
+/**
+ *  All RequestOperation errors conform this protocol. If you want to see your your mapped error in errorBlock your error object should conform this protocol
+ */
 public protocol CinErrorProtocol: ErrorType {
     var message: String { get }
 }
 
+/**
+ Enum of possible RequestOperation errors
+ 
+ - BuildRequestError: error during building request. May occur if NSURLRequestBuilder returns nil request, or parameters dictionary cannot be generated
+ - HTTPRequestError:  error during executing operation or in case of 4xx, 5xx error. Contains of optional error code and error object
+ - MappingError:      operation executed successfully but mapping cannot be performed
+ */
 public enum RequestError: ErrorType {
     case BuildRequestError(message: String)
     case HTTPRequestError(HTTPStatusCodeGroup, CinErrorProtocol)
     case MappingError(MapperError)
 }
 
+/**
+ *  Default implementation of CinErrorProtocol
+ */
 public struct URLRequestError: CinErrorProtocol {
     public let message: String
     public let error: NSError
@@ -103,12 +118,24 @@ private struct UnknownError: CinErrorProtocol {
 }
 
 public typealias Method = Alamofire.Method
+
+/// function for creating NSURLRequest
 public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest
+
+/** 
+*   Tuple for request mapping
+*   - parameter key: destination key in parameters dictionary. Added in root if is 'nil'
+*   - parameter mapper: mapper from Mappable to JSON dictionary
+*/
 public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper)
+
 public typealias ResponseObjectMapping = (codeGroup: HTTPStatusCodeGroup, key: String?, mapping: ObjectJSONMapper)
 
+/// Main operation class that manages following steps of REST operation: creating NSURLrequest, performing this request, parsing result to application's model
 public class RequestOperation: Operation {
+    /// called on the following operation failures: error during creating URL reuqest, executing, mapping results, or Client 4xx or Server 5xx errors
     public var errorBlock: (([RequestError]) -> Void)?
+    /// executed if NSURLRequest executed with 2xx statusCode and mapping successfully completed
     public var successBlock: (([Any]) -> Void)?
 
     private let requestMethod: Alamofire.Method
@@ -118,9 +145,20 @@ public class RequestOperation: Operation {
     private let parameters: [String: AnyObject]?
     private let URL: NSURL
     private let internalQueue = NSOperationQueue()
-
     private var operationStartDate: NSDate = NSDate()
-
+    
+    /**
+     Default request initialization flow
+     
+     - parameter requestMethod:    HTTP request method: GET, POST, PUT, etc.
+     - parameter parameters:       Optional dictionary of request parameters
+     - parameter requestBuilder:   function for building NSURLRequest
+     - parameter requestMapping:   tuple for creating JSON dictionary from application's model object. This value after merged with parameters dictionary
+     - parameter responseMappings: array of response mappers
+     - parameter URL:              url for the REST resource
+     
+     - returns: RequestOperation object
+     */
     public required init(requestMethod: Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL) {
 
         self.parameters = parameters
@@ -175,7 +213,7 @@ public class RequestOperation: Operation {
         }
     }
 
-    override public func execute() {
+    override func execute() {
         internalQueue.suspended = false
         operationStartDate = NSDate()
 
@@ -258,7 +296,7 @@ public class RequestOperation: Operation {
         return resultDictionary
     }
 
-    override public func finish() {
+    override func finish() {
         let interval = NSDate().timeIntervalSinceDate(operationStartDate)
         print(String(format:"\(requestMethod):\(URL.absoluteString) completed in %.3f sec.", interval))
         let requestErrors = errors.flatMap { $0 as? RequestError }

@@ -10,7 +10,11 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
+/**
+ *  Protocol declares main parts of what final RequestOperation should consist of
+ */
 public protocol RequestBuilder {
+    /// URL for the resource
     var URL: NSURL { get }
     var httpMethod: Method { get }
     var parameters: [String : AnyObject]? { get }
