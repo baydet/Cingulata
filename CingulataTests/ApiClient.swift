@@ -9,16 +9,37 @@
 import Foundation
 import Cingulata
 import Alamofire
+import ObjectMapper
+
+struct TestData: Mappable {
+    var stringKey: String = ""
+    var string2Key: String = ""
+    
+    init() {
+    }
+    
+    init?(_ map: Map) {
+        self = TestData()
+    }
+    
+    mutating func mapping(map: Map) {
+        stringKey <- map["key"]
+        string2Key <- map["key2"]
+    }
+}
 
 enum Endpoint: RequestBuilder {
     
     case NotFound
+    case Data(object: TestData)
     
     var URL: NSURL {
         let path: String!
         switch self {
         case .NotFound:
             path = "status/404"
+        case .Data:
+            path = "https://httpbin.org/response-headers"
         }
         return NSURL(string: path, relativeToURL: NSURL(string: "https://httpbin.org"))!
     }
@@ -30,16 +51,31 @@ enum Endpoint: RequestBuilder {
     }
     
     var parameters: [String : AnyObject]? {
-        return nil
+        switch self {
+        case .Data(_):
+            return ["key2" : "value2"]
+        default:
+            return nil
+        }
     }
     var requestMapping: RequestObjectMapping? {
-        return nil
+        switch self {
+        case .Data(let data):
+            return (nil, DefaultMapper<TestData>(sourceObject: SourceObjectType<TestData>.Object(data), expectedResultType: .Object))
+        default:
+            return nil
+        }
     }
     var requestBuilder: NSURLRequestBuilder {
         return defaultRequestBuilder
     }
     var responseMapping: [ResponseObjectMapping]? {
-        return nil
+        switch self {
+        case .Data:
+            return [(HTTPStatusCodeGroup.Success(nil), nil, DefaultMapper<TestData>(expectedResultType: .Object))]
+        default:
+            return nil
+        }
     }
     
 }

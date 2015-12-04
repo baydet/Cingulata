@@ -45,6 +45,29 @@ class RequestOperationTests: XCTestCase {
         }
     }
     
+    func testSuccesMappingBlock() {
+        let expectation = expectationWithDescription("GET request should return 200 with non empty response")
+        var data = TestData()
+        data.stringKey = "value"
+        let endpoint = Endpoint.Data(object: data)
+        let operation = RequestOperation(requestBuilder: endpoint)
+        var object: TestData? = nil
+        operation.errorBlock = { _errors in
+            expectation.fulfill()
+        }
+        operation.successBlock = { results in
+            object = (results.flatMap {$0 as? TestData}).first
+            expectation.fulfill()
+        }
+        operation.start()
+        waitForExpectationsWithTimeout(5, handler: nil)
+        
+        XCTAssertNotNil(object)
+        XCTAssertEqual(object?.stringKey, data.stringKey)
+        XCTAssertEqual(object?.string2Key, endpoint.parameters?.values.first as? String)
+    }
+    
+    
 }
 
 extension HTTPStatusCodeGroup {
