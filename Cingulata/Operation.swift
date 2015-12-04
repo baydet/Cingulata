@@ -17,7 +17,7 @@ extension NSLock {
     }
 }
 
-class Operation: NSOperation {
+public class Operation: NSOperation {
 
     //MARK: operaton state management
 
@@ -78,7 +78,7 @@ class Operation: NSOperation {
         }
     }
 
-    override var finished: Bool {
+    override public var finished: Bool {
         return state == .Finished
     }
 
@@ -95,7 +95,7 @@ class Operation: NSOperation {
 
     //MARK: NSOperation methods
 
-    override func main() {
+    override public func main() {
         state = .Executing
 
         execute()
