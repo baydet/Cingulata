@@ -28,10 +28,26 @@ struct TestData: Mappable {
     }
 }
 
+struct NestedData: Mappable {
+    var stringKey: String = ""
+    
+    init() {
+    }
+    
+    init?(_ map: Map) {
+        self = NestedData()
+    }
+    
+    mutating func mapping(map: Map) {
+        stringKey <- map["Host"]
+    }
+}
+
 enum Endpoint: RequestBuilder {
     
     case NotFound
     case Data(object: TestData)
+    case GetNestedData
     
     var URL: NSURL {
         let path: String!
@@ -40,6 +56,8 @@ enum Endpoint: RequestBuilder {
             path = "status/404"
         case .Data:
             path = "https://httpbin.org/response-headers"
+        case .GetNestedData:
+            path = "https://httpbin.org/get"
         }
         return NSURL(string: path, relativeToURL: NSURL(string: "https://httpbin.org"))!
     }
@@ -73,6 +91,8 @@ enum Endpoint: RequestBuilder {
         switch self {
         case .Data:
             return [(HTTPStatusCodeGroup.Success(nil), nil, DefaultMapper<TestData>(expectedResultType: .Object))]
+        case .GetNestedData:
+            return [(HTTPStatusCodeGroup.Success(nil), "headers", DefaultMapper<NestedData>(expectedResultType: .Object))]
         default:
             return nil
         }
