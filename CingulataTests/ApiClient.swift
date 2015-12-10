@@ -78,6 +78,9 @@ enum Endpoint: RequestBuilder {
         }
     }
     
+    var cleanOrphanedObjects: CleanOrhpanedObjects? {
+        return nil
+    }
 }
 
 func defaultRequestBuilder(parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest {

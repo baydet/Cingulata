@@ -30,7 +30,7 @@ class RequestOperationTests: XCTestCase {
             expectation.fulfill()
         }
         operation.successBlock = { results in
-            print(results)
+            expectation.fulfill()
         }
         operation.start()
         waitForExpectationsWithTimeout(10, handler: nil)
@@ -62,7 +62,6 @@ class RequestOperationTests: XCTestCase {
         operation.start()
         waitForExpectationsWithTimeout(5, handler: nil)
         
-        XCTAssertNotNil(object)
         XCTAssertEqual(object?.stringKey, data.stringKey)
         XCTAssertEqual(object?.string2Key, endpoint.parameters?.values.first as? String)
     }

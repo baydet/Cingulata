@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 import ObjectMapper
 
+/// function for creating NSURLRequest
+public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMethod: String, URL: NSURL) throws -> NSURLRequest
+
+public typealias CleanOrhpanedObjects = () -> Void
+
 /**
  *  Protocol declares main parts of what final RequestOperation should consist of
  */
@@ -21,10 +26,5 @@ public protocol RequestBuilder {
     var requestMapping: RequestObjectMapping? { get }
     var requestBuilder: NSURLRequestBuilder { get }
     var responseMapping: [ResponseObjectMapping]? { get }
-}
-
-public extension RequestOperation {
-    public convenience init(requestBuilder: RequestBuilder) {
-        self.init(requestMethod: requestBuilder.httpMethod, parameters: requestBuilder.parameters, requestBuilder: requestBuilder.requestBuilder, requestMapping: requestBuilder.requestMapping, responseMappings: requestBuilder.responseMapping, URL: requestBuilder.URL)
-    }
+    var cleanOrphanedObjects: CleanOrhpanedObjects? { get }
 }
