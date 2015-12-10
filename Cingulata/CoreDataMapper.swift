@@ -40,15 +40,45 @@ public extension CoreDataMappable {
 
 public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : DefaultMapper<T> {
     private let context: NSManagedObjectContext
+    private let orphanedObjectsRequest: NSFetchRequest?
 
-    public required init(sourceObject: SourceObjectType<T>?, expectedResultType: ExpectedResultType = .Object, context: NSManagedObjectContext) {
+    public required init(sourceObject: SourceObjectType<T>? = nil, expectedResultType: ExpectedResultType = .Object, context: NSManagedObjectContext, orhanedObjectsRequest: NSFetchRequest? = nil) {
         self.context = context
+        self.orphanedObjectsRequest = orhanedObjectsRequest
         super.init(sourceObject: sourceObject, expectedResultType: expectedResultType)
     }
 
     override public func mapToObject(json: AnyObject?) throws {
+        defer {
+            saveContext()
+        }
         try super.mapToObject(json)
-        saveContext()
+
+        guard let fetchReuqest = orphanedObjectsRequest else {
+            return
+        }
+        var newObjectsArray : [T] = []
+        switch expectedResultType {
+        case .Array:
+            if let a = mappingResult as? [T] {
+                newObjectsArray += a
+            }
+        default:
+            return
+        }
+        do {
+            guard let results = try context.executeFetchRequest(fetchReuqest) as? [T] else {
+                return
+            }
+            let objectsToDelete = results.filter { object in
+                return (newObjectsArray.filter { $0.objectID == object.objectID}).count == 0
+            }
+            objectsToDelete.forEach {
+                context.deleteObject($0)
+            }
+        } catch let error {
+            print(error)
+        }
     }
 
     override func mapFromJSON(jsonDictionary: [String : AnyObject]) -> T? {

@@ -28,7 +28,7 @@ public enum SourceObjectType<S> {
 }
 
 public class DefaultMapper<T: Mappable>: ObjectJSONMapper {
-    private let expectedResultType: ExpectedResultType
+    let expectedResultType: ExpectedResultType
     public private(set) var mappingResult: Any?
 
     let mapper: Mapper<T> = Mapper<T>()
