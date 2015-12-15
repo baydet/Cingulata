@@ -38,8 +38,11 @@ public struct HTTPStatusCode : OptionSetType {
     
 
     public static let NoCode: HTTPStatusCode =    [NoStatusCode]
+    ///2xx status codes group
     public static let Success: HTTPStatusCode =   [OK, Created, NoContent]
+    ///4xx status codes group
     public static let Client: HTTPStatusCode =    [BadRequest, Unauthorized, PaymentRequired, Forbidden, NotFound, MethodNotAllowed, NotAcceptable, RequestTimeout, Conflict, Gone]
+    ///5xx status codes group
     public static let Server: HTTPStatusCode =    [InternalServerError]
 }
 
@@ -92,7 +95,7 @@ public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMet
 *   - parameter key: destination key in parameters dictionary. Added in root if is 'nil'
 *   - parameter mapper: mapper from Mappable to JSON dictionary
 */
-public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper)
+public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper, sourceObject: Any)
 
 public typealias ResponseObjectMapping = (code: HTTPStatusCode, key: String?, mapping: ObjectJSONMapper)
 
@@ -111,6 +114,7 @@ public class RequestOperation: Operation {
     private let URL: NSURL
     private let internalQueue = NSOperationQueue()
     private var operationStartDate: NSDate = NSDate()
+    private var mappingResults: [Any] = []
     
     /**
      Default request initialization flow
@@ -159,7 +163,9 @@ public class RequestOperation: Operation {
 
                     //
                     do {
-                        try mapper.mapToObject(mappedJSON)
+                        if let json = mappedJSON, let object = try mapper.mapToObject(json) {
+                            mappingResults.append(object)
+                        }
                     } catch let error as MapperError {
                         errors.append(RequestError.MappingError(error))
                     } catch {
@@ -169,7 +175,7 @@ public class RequestOperation: Operation {
         }
 
         if HTTPStatusCode.Server.contains(code) || HTTPStatusCode.Client.contains(code) {
-            let error = self.responseMappings?.flatMap{_, _, mapper in mapper.mappingResult as? CinErrorProtocol }.first
+            let error = mappingResults.flatMap{$0 as? CinErrorProtocol }.first
 
             errors.append(RequestError.HTTPRequestError(code, error ?? UnknownError()))
         }
@@ -235,7 +241,7 @@ public class RequestOperation: Operation {
         var resultDictionary: [String : AnyObject]? = nil
 
         if let requestMapping = requestMapping {
-            let json = requestMapping.mapper.mapToJSON()
+            let json = requestMapping.mapper.mapToJSON(requestMapping.sourceObject)
             if let key = requestMapping.key {
                 resultDictionary = [:]
                 resultDictionary?[key] = json
@@ -268,9 +274,8 @@ public class RequestOperation: Operation {
 
             errorBlock?(requestErrors)
         } else {
-            let results = responseMappings?.flatMap { $0.mapping.mappingResult } ?? []
 
-            successBlock?(results)
+            successBlock?(mappingResults)
         }
 
         super.finish()
