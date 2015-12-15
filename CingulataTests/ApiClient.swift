@@ -79,7 +79,7 @@ enum Endpoint: RequestBuilder {
     var requestMapping: RequestObjectMapping? {
         switch self {
         case .Data(let data):
-            return (nil, DefaultMapper<TestData>(sourceObject: SourceObjectType<TestData>.Object(data), expectedResultType: .Object))
+            return (nil, DefaultMapper<TestData>(expectedResultType: .Object), data)
         default:
             return nil
         }

@@ -42,20 +42,20 @@ public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : De
     private let context: NSManagedObjectContext
     private let orphanedObjectsRequest: NSFetchRequest?
 
-    public required init(sourceObject: SourceObjectType<T>? = nil, expectedResultType: ExpectedResultType = .Object, context: NSManagedObjectContext, orhanedObjectsRequest: NSFetchRequest? = nil) {
+    public required init(expectedResultType: ExpectedResultType = .Object, context: NSManagedObjectContext, orhanedObjectsRequest: NSFetchRequest? = nil) {
         self.context = context
         self.orphanedObjectsRequest = orhanedObjectsRequest
-        super.init(sourceObject: sourceObject, expectedResultType: expectedResultType)
+        super.init(expectedResultType: expectedResultType)
     }
 
-    override public func mapToObject(json: AnyObject?) throws {
+    override public func mapToObject(json: AnyObject) throws -> Any? {
         defer {
             saveContext()
         }
-        try super.mapToObject(json)
+        let mappingResult = try super.mapToObject(json)
 
         guard let fetchReuqest = orphanedObjectsRequest else {
-            return
+            return nil
         }
         var newObjectsArray : [T] = []
         switch expectedResultType {
@@ -64,11 +64,11 @@ public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : De
                 newObjectsArray += a
             }
         default:
-            return
+            return nil
         }
         do {
             guard let results = try context.executeFetchRequest(fetchReuqest) as? [T] else {
-                return
+                return nil
             }
             let objectsToDelete = results.filter { object in
                 return (newObjectsArray.filter { $0.objectID == object.objectID}).count == 0
@@ -79,6 +79,7 @@ public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : De
         } catch let error {
             print(error)
         }
+        return mappingResult
     }
 
     override func mapFromJSON(jsonDictionary: [String : AnyObject]) -> T? {

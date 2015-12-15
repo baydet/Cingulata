@@ -8,9 +8,8 @@
 import ObjectMapper
 
 public protocol ObjectJSONMapper {
-    var mappingResult: Any? { get }
-    func mapToJSON() -> AnyObject?
-    func mapToObject(json: AnyObject?) throws
+    func mapToJSON(object: Any) -> AnyObject?
+    func mapToObject(json: AnyObject) throws -> Any?
 }
 
 public enum ExpectedResultType {
@@ -29,32 +28,27 @@ public enum SourceObjectType<S> {
 
 public class DefaultMapper<T: Mappable>: ObjectJSONMapper {
     let expectedResultType: ExpectedResultType
-    public private(set) var mappingResult: Any?
 
     let mapper: Mapper<T> = Mapper<T>()
-    private var sourceObject: SourceObjectType<T>?
 
-    public required init(sourceObject: SourceObjectType<T>? = nil, expectedResultType: ExpectedResultType = .Object) {
-        self.sourceObject = sourceObject
+    public required init(expectedResultType: ExpectedResultType = .Object) {
         self.expectedResultType = expectedResultType
     }
 
-    public func mapToJSON() -> AnyObject? {
-        assert(sourceObject != nil, "sourceObject cannot be nil with toJSON mapping")
-        guard let object = sourceObject else {
-            return nil
+    public func mapToJSON(object: Any) -> AnyObject? {
+        if let mappableObject = object as? T {
+            return mapper.toJSON(mappableObject)
         }
-        switch object {
-        case .Object(let o):
-            return mapper.toJSON(o)
-        case .Array(let a):
-            return mapper.toJSONArray(a)
+        if let mappableArray = object as? [T] {
+            return mapper.toJSONArray(mappableArray)
         }
+        return nil
     }
-
-    public func mapToObject(json: AnyObject?) throws {
+    
+    public func mapToObject(json: AnyObject) throws -> Any? {
+        var mappingResult: Any? = nil
         guard let json: AnyObject = json else {
-            return
+            return nil
         }
         switch expectedResultType {
         case .Object:
@@ -76,6 +70,7 @@ public class DefaultMapper<T: Mappable>: ObjectJSONMapper {
                 throw MapperError.WrongJSONFormat
             }
         }
+        return mappingResult
     }
 
     func mapFromJSON(jsonDictionary: [String : AnyObject]) -> T? {
