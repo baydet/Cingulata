@@ -39,7 +39,7 @@ class RequestOperationTests: XCTestCase {
         let error = errors.first!
         switch error {
         case .HTTPRequestError(let group, _):
-            XCTAssertEqual(group.statusCode, HTTPStatusCode.NotFound)
+            XCTAssertEqual(group, HTTPStatusCode.NotFound)
         default:
             XCTAssertFalse(false, "wrong error type")
         }
@@ -86,15 +86,4 @@ class RequestOperationTests: XCTestCase {
         XCTAssertEqual(object?.stringKey, "httpbin.org")
     }
     
-}
-
-extension HTTPStatusCodeGroup {
-    var statusCode: HTTPStatusCode? {
-        switch self {
-        case .Client(let group):
-            return group
-        default:
-            return nil
-        }
-    }
 }

@@ -90,9 +90,9 @@ enum Endpoint: RequestBuilder {
     var responseMapping: [ResponseObjectMapping]? {
         switch self {
         case .Data:
-            return [(HTTPStatusCodeGroup.Success(nil), nil, DefaultMapper<TestData>(expectedResultType: .Object))]
+            return [(HTTPStatusCode.Success, nil, DefaultMapper<TestData>(expectedResultType: .Object))]
         case .GetNestedData:
-            return [(HTTPStatusCodeGroup.Success(nil), "headers", DefaultMapper<NestedData>(expectedResultType: .Object))]
+            return [(HTTPStatusCode.Success, "headers", DefaultMapper<NestedData>(expectedResultType: .Object))]
         default:
             return nil
         }

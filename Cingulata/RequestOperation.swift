@@ -10,72 +10,37 @@ import Foundation
 import Alamofire
 import CoreData
 
-public enum HTTPStatusCodeGroup {
-    case NoCode
-    case Success(HTTPStatusCode?)
-    case Client(HTTPStatusCode?)
-    case Server(HTTPStatusCode?)
-
-    init?(intCode: Int) {
-        let code = HTTPStatusCode(rawValue: intCode)
-        switch intCode {
-        case 0:
-            self = .NoCode
-        case 200...299:
-            self = .Success(code)
-        case 400...499:
-            self = .Client(code)
-        case 500...599:
-            self = .Server(code)
-        default:
-            return nil
-        }
-    }
-
-    func compareCodes(a: HTTPStatusCode?,_ b: HTTPStatusCode?) -> Bool {
-        guard let a = a else {
-            return true
-        }
-        guard let b = b else {
-            return false
-        }
-        return a == b
-    }
-
-    func has(codeGroup: HTTPStatusCodeGroup) -> Bool {
-        switch (self, codeGroup) {
-        case (.Success(let a), .Success(let b)):
-            return compareCodes(a, b)
-        case (.Client(let a), .Client(let b)):
-            return compareCodes(a, b)
-        case (.Server(let a), .Server(let b)):
-            return compareCodes(a, b)
-        default:
-            return false
-        }
-    }
-}
-
 /**
- Enum for HTTP status codes
+ Struct for HTTP status codes
  */
-public enum HTTPStatusCode: Int {
-    case NoStatusCode = 0
-    case OK = 200
-    case Created = 201
-    case NoContent = 204
-    case BadRequest = 400
-    case Unauthorized = 401
-    case PaymentRequired = 402
-    case Forbidden = 403
-    case NotFound = 404
-    case MethodNotAllowed = 405
-    case NotAcceptable = 406
-    case RequestTimeout = 408
-    case Conflict = 409
-    case Gone = 410
+public struct HTTPStatusCode : OptionSetType {
+    public let rawValue: Int
+    public init(rawValue: Int) { self.rawValue = rawValue }
+    
+    public static let NoStatusCode =           HTTPStatusCode(rawValue: 0)
 
-    case InternalServerError = 500
+    public static let OK =                     HTTPStatusCode(rawValue: 200)
+    public static let Created =                HTTPStatusCode(rawValue: 201)
+    public static let NoContent =              HTTPStatusCode(rawValue: 204)
+
+    public static let BadRequest =             HTTPStatusCode(rawValue: 400)
+    public static let Unauthorized =           HTTPStatusCode(rawValue: 401)
+    public static let PaymentRequired =        HTTPStatusCode(rawValue: 402)
+    public static let Forbidden =              HTTPStatusCode(rawValue: 403)
+    public static let NotFound =               HTTPStatusCode(rawValue: 404)
+    public static let MethodNotAllowed =       HTTPStatusCode(rawValue: 405)
+    public static let NotAcceptable =          HTTPStatusCode(rawValue: 406)
+    public static let RequestTimeout =         HTTPStatusCode(rawValue: 408)
+    public static let Conflict =               HTTPStatusCode(rawValue: 409)
+    public static let Gone =                   HTTPStatusCode(rawValue: 410)
+    
+    public static let InternalServerError =    HTTPStatusCode(rawValue: 500)
+    
+
+    public static let NoCode: HTTPStatusCode =    [NoStatusCode]
+    public static let Success: HTTPStatusCode =   [OK, Created, NoContent]
+    public static let Client: HTTPStatusCode =    [BadRequest, Unauthorized, PaymentRequired, Forbidden, NotFound, MethodNotAllowed, NotAcceptable, RequestTimeout, Conflict, Gone]
+    public static let Server: HTTPStatusCode =    [InternalServerError]
 }
 
 /**
@@ -94,7 +59,7 @@ public protocol CinErrorProtocol: ErrorType {
  */
 public enum RequestError: ErrorType {
     case BuildRequestError(message: String)
-    case HTTPRequestError(HTTPStatusCodeGroup, CinErrorProtocol)
+    case HTTPRequestError(HTTPStatusCode, CinErrorProtocol)
     case MappingError(MapperError)
 }
 
@@ -129,7 +94,7 @@ public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMet
 */
 public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper)
 
-public typealias ResponseObjectMapping = (codeGroup: HTTPStatusCodeGroup, key: String?, mapping: ObjectJSONMapper)
+public typealias ResponseObjectMapping = (code: HTTPStatusCode, key: String?, mapping: ObjectJSONMapper)
 
 /// Main operation class that manages following steps of REST operation: creating NSURLrequest, performing this request, parsing result to application's model
 public class RequestOperation: Operation {
@@ -177,14 +142,11 @@ public class RequestOperation: Operation {
     }
 
     private func map(statusCode: Int, responseJSON: AnyObject?) {
-        guard let codeGroup = HTTPStatusCodeGroup(intCode: statusCode) else {
-            print("unexpected status code value")
-            return
-        }
+        let code = HTTPStatusCode(rawValue: statusCode)
 
         if let responseMappings = self.responseMappings, json = responseJSON {
             responseMappings
-                .filter { $0.codeGroup.has(codeGroup) }
+                .filter { $0.code.contains(code) }
                 .forEach { _, key, mapper in
                     //
                     let mappedJSON: AnyObject?
@@ -206,10 +168,10 @@ public class RequestOperation: Operation {
                 }
         }
 
-        if HTTPStatusCodeGroup.Server(nil).has(codeGroup) || HTTPStatusCodeGroup.Client(nil).has(codeGroup) {
+        if HTTPStatusCode.Server.contains(code) || HTTPStatusCode.Client.contains(code) {
             let error = self.responseMappings?.flatMap{_, _, mapper in mapper.mappingResult as? CinErrorProtocol }.first
 
-            errors.append(RequestError.HTTPRequestError(codeGroup, error ?? UnknownError()))
+            errors.append(RequestError.HTTPRequestError(code, error ?? UnknownError()))
         }
     }
 
@@ -221,15 +183,16 @@ public class RequestOperation: Operation {
             let URLRequest = try requestBuilder(parameters: requestParameters(), HTTPMethod: requestMethod.rawValue, URL: URL)
             let httpOperation = AlamofireOperation(request: URLRequest)
             httpOperation.completionBlock = { [weak self, unowned httpOperation] in
-                if let statusCode = httpOperation.statusCode, group = HTTPStatusCodeGroup(intCode: statusCode) {
-                    guard HTTPStatusCodeGroup.Server(nil).has(group) || HTTPStatusCodeGroup.Client(nil).has(group) || HTTPStatusCodeGroup.NoCode.has(group) else {
+                if let statusCode = httpOperation.statusCode {
+                    let group = HTTPStatusCode(rawValue: statusCode)
+                    guard HTTPStatusCode.Server.contains(group) || HTTPStatusCode.Client.contains(group) || HTTPStatusCode.NoCode.contains(group) else {
                         return
                     }
                 }
                 
                 self?.errors += (httpOperation.errors
                     .flatMap { $0 as NSError }
-                    .flatMap { RequestError.HTTPRequestError(HTTPStatusCodeGroup.NoCode, URLRequestError(error: $0)) }) as [ErrorType]
+                    .flatMap { RequestError.HTTPRequestError(HTTPStatusCode.NoCode, URLRequestError(error: $0)) }) as [ErrorType]
             }
 
             let mappingOperation = NSBlockOperation(){ [weak self] in
