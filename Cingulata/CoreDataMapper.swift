@@ -55,7 +55,7 @@ public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : De
         let mappingResult = try super.mapToObject(json)
 
         guard let fetchReuqest = orphanedObjectsRequest else {
-            return nil
+            return mappingResult
         }
         var newObjectsArray : [T] = []
         switch expectedResultType {
@@ -64,11 +64,11 @@ public class CoreDataMapper<T where T: NSManagedObject, T:CoreDataMappable> : De
                 newObjectsArray += a
             }
         default:
-            return nil
+            return mappingResult
         }
         do {
             guard let results = try context.executeFetchRequest(fetchReuqest) as? [T] else {
-                return nil
+                return mappingResult
             }
             let objectsToDelete = results.filter { object in
                 return (newObjectsArray.filter { $0.objectID == object.objectID}).count == 0
