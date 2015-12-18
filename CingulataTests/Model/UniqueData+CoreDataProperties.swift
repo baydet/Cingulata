@@ -14,6 +14,6 @@ import CoreData
 
 extension UniqueData {
 
-    @NSManaged var identifier: Int
+    @NSManaged var identifier: NSNumber?
 
 }

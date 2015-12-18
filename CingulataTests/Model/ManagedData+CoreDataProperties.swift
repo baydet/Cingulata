@@ -15,6 +15,6 @@ import CoreData
 extension ManagedData {
 
     @NSManaged var text: String?
-    @NSManaged var identifier: Int
+    @NSManaged var identifier: NSNumber?
 
 }
