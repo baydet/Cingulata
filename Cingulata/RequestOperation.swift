@@ -81,7 +81,7 @@ public struct URLRequestError: CinErrorProtocol {
 
 private struct UnknownError: CinErrorProtocol {
     var message: String {
-        return "Unknown error"
+        return ""
     }
 }
 
