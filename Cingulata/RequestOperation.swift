@@ -96,17 +96,32 @@ public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMet
 *   - parameter key: destination key in parameters dictionary. Added in root if is 'nil'
 *   - parameter mapper: mapper from Mappable to JSON dictionary
 */
-public typealias RequestObjectMapping = (key: String?, mapper: TransformType, sourceObject: Any)
 
-enum JSON {
-    case Number
-    case JString
-    case Bool
-    indirect case Array([JSON])
-    indirect case Dictionary([String: JSON])
+public struct RequestObjectMapping {
+    private let key: String?
+    private let transformFunction: () -> AnyObject?
+    
+    public init<T: TransformType>(key: String?, sourceObject: T.Object, transform: T) {
+        self.key = key
+        self.transformFunction = {
+            return transform.transformToJSON(sourceObject) as? AnyObject
+        }
+    }
 }
 
-public typealias ResponseObjectMapping = (code: HTTPStatusCode, key: String?, mapping: TransformType)
+public struct ResponseObjectMapping {
+    private let key: String?
+    private let code: HTTPStatusCode
+    private let transformFunction: (AnyObject?) -> Any?
+    
+    public init<T: TransformType>(code: HTTPStatusCode, key: String?, transform: T) {
+        self.key = key
+        self.code = code
+        self.transformFunction = { object in
+            transform.transformFromJSON(object as? T.JSON)
+        }
+    }
+}
 
 /// Main operation class that manages following steps of REST operation: creating NSURLrequest, performing this request, parsing result to application's model
 public class RequestOperation: Operation {
@@ -160,27 +175,20 @@ public class RequestOperation: Operation {
         if let responseMappings = self.responseMappings, json = responseJSON {
             responseMappings
                 .filter { $0.code.contains(code) }
-                .forEach { _, key, mapper in
+                .forEach { mapping in
                     //
                     let mappedJSON: AnyObject?
 
-                    if let key = key, dict = json as? [String : AnyObject] {
+                    if let key = mapping.key, dict = json as? [String : AnyObject] {
                         mappedJSON = dict[key]
                     } else {
                         mappedJSON = json
                     }
 
-                    //
-//                    do {
-//                    mapper.transformFromJSON(json)
-//                        if let json = mappedJSON, let object = try mapper.mapToObject(json) {
-//                            mappingResults.append(object)
-//                        }
-//                    } catch let error as MapperError {
-//                        errors.append(RequestError.MappingError(error))
-//                    } catch {
-//                        // Nothing to do
-//                    }
+                    
+                    if let json = mappedJSON, let object = mapping.transformFunction(json) {
+                        mappingResults.append(object)
+                    }
                 }
         }
 
@@ -251,7 +259,7 @@ public class RequestOperation: Operation {
         var resultDictionary: [String : AnyObject]? = nil
 
         if let requestMapping = requestMapping {
-            let json = [:];//requestMapping.mapper.mapToJSON(requestMapping.sourceObject)
+            let json = requestMapping.transformFunction()
             if let key = requestMapping.key {
                 resultDictionary = [:]
                 resultDictionary?[key] = json
