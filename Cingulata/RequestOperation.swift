@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import CoreData
+import Pichi
 
 /**
  Struct for HTTP status codes
@@ -63,7 +64,7 @@ public protocol CinErrorProtocol: ErrorType {
 public enum RequestError: ErrorType {
     case BuildRequestError(message: String)
     case HTTPRequestError(HTTPStatusCode, CinErrorProtocol)
-    case MappingError(MapperError)
+    case MappingError(CinErrorProtocol)
 }
 
 /**
@@ -95,9 +96,17 @@ public typealias NSURLRequestBuilder = (parameters: [String:AnyObject]?, HTTPMet
 *   - parameter key: destination key in parameters dictionary. Added in root if is 'nil'
 *   - parameter mapper: mapper from Mappable to JSON dictionary
 */
-public typealias RequestObjectMapping = (key: String?, mapper: ObjectJSONMapper, sourceObject: Any)
+public typealias RequestObjectMapping = (key: String?, mapper: TransformType, sourceObject: Any)
 
-public typealias ResponseObjectMapping = (code: HTTPStatusCode, key: String?, mapping: ObjectJSONMapper)
+enum JSON {
+    case Number
+    case JString
+    case Bool
+    indirect case Array([JSON])
+    indirect case Dictionary([String: JSON])
+}
+
+public typealias ResponseObjectMapping = (code: HTTPStatusCode, key: String?, mapping: TransformType)
 
 /// Main operation class that manages following steps of REST operation: creating NSURLrequest, performing this request, parsing result to application's model
 public class RequestOperation: Operation {
@@ -162,15 +171,16 @@ public class RequestOperation: Operation {
                     }
 
                     //
-                    do {
-                        if let json = mappedJSON, let object = try mapper.mapToObject(json) {
-                            mappingResults.append(object)
-                        }
-                    } catch let error as MapperError {
-                        errors.append(RequestError.MappingError(error))
-                    } catch {
-                        // Nothing to do
-                    }
+//                    do {
+//                    mapper.transformFromJSON(json)
+//                        if let json = mappedJSON, let object = try mapper.mapToObject(json) {
+//                            mappingResults.append(object)
+//                        }
+//                    } catch let error as MapperError {
+//                        errors.append(RequestError.MappingError(error))
+//                    } catch {
+//                        // Nothing to do
+//                    }
                 }
         }
 
@@ -241,7 +251,7 @@ public class RequestOperation: Operation {
         var resultDictionary: [String : AnyObject]? = nil
 
         if let requestMapping = requestMapping {
-            let json = requestMapping.mapper.mapToJSON(requestMapping.sourceObject)
+            let json = [:];//requestMapping.mapper.mapToJSON(requestMapping.sourceObject)
             if let key = requestMapping.key {
                 resultDictionary = [:]
                 resultDictionary?[key] = json

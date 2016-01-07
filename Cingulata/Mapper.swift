@@ -5,7 +5,6 @@
 //  Created by Alexander Evsyuchenya on 10/3/15.
 //  Copyright © 2015 baydet. All rights reserved.
 //
-import ObjectMapper
 
 public protocol ObjectJSONMapper {
     func mapToJSON(object: Any) -> AnyObject?

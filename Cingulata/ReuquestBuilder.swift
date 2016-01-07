@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
+import Pichi
 
 /**
  *  Protocol declares main parts of what final RequestOperation should consist of

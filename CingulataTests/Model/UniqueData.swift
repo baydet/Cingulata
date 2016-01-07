@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 import Cingulata
-import ObjectMapper
 
 
 class UniqueData: NSManagedObject, CoreDataMappable {
