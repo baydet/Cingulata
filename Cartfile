@@ -1,2 +1,2 @@
-github "baydet/ObjectMapper" "currentValue-on-Map-init"
+github "baydet/Pichi" "master"
 github "Alamofire/Alamofire" ~> 3.0

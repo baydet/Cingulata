@@ -1,6 +1,6 @@
-[submodule "Carthage/Checkouts/ObjectMapper"]
-	path = Carthage/Checkouts/ObjectMapper
-	url = https://github.com/baydet/ObjectMapper.git
+[submodule "Carthage/Checkouts/Pichi"]
+	path = Carthage/Checkouts/Pichi
+	url = https://github.com/baydet/Pichi.git
 [submodule "Carthage/Checkouts/Alamofire"]
 	path = Carthage/Checkouts/Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
