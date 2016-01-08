@@ -47,9 +47,6 @@
 		D381899E1BF1F94C008C6142 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
 		D38189A01BF1F94C008C6142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D38189A61BF1F998008C6142 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
-		D38189A71BF1F998008C6142 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
-		D38189A81BF1F998008C6142 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
 		D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestBuilders.swift; sourceTree = "<group>"; };
 		D38189AB1BF1F998008C6142 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		D38189AC1BF1F998008C6142 /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
@@ -126,9 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				D38189A61BF1F998008C6142 /* AlamofireOperation.swift */,
-				D38189A71BF1F998008C6142 /* CoreDataMapper.swift */,
-				D38189A81BF1F998008C6142 /* Mapper.swift */,
-				D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */,
 				D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */,
 				D38189AB1BF1F998008C6142 /* Operation.swift */,
 				D38189AC1BF1F998008C6142 /* RequestOperation.swift */,
