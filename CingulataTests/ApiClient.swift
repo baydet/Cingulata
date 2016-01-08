@@ -76,7 +76,7 @@ enum Endpoint: RequestBuilder {
     var requestMapping: RequestObjectMapping? {
         switch self {
         case .Data(let data):
-            return RequestObjectMapping(key: nil, sourceObject: data,  transform: RequestMapper<TestData>(mapFunction: testDataMapping))
+            return RequestObjectMapping(key: nil, sourceObject: data,  transform: RequestDictionaryMapping<TestData>(mapFunction: testDataMapping))
         default:
             return nil
         }
@@ -87,7 +87,7 @@ enum Endpoint: RequestBuilder {
     var responseMapping: [ResponseObjectMapping]? {
         switch self {
         case .Data:
-            return [ResponseObjectMapping(code: HTTPStatusCode.Success, key: nil, transform: ResponseMapping<TestData>(mapFunction: testDataMapping))]
+            return [ResponseObjectMapping(code: HTTPStatusCode.Success, key: nil, transform: ResponseDictionaryMapping<TestData>(mapFunction: testDataMapping))]
         default:
             return nil
         }
