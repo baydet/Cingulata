@@ -11,7 +11,6 @@
 		86C9242A1BFA6750003864A7 /* RequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C924291BFA6750003864A7 /* RequestOperationTests.swift */; };
 		86C9242C1BFA69B0003864A7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C9242B1BFA69B0003864A7 /* ApiClient.swift */; };
 		86F207D01C3F07A100F3CEFF /* Pichi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F207CF1C3F07A100F3CEFF /* Pichi.framework */; };
-		D359781D1C21556600971E3B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D359781B1C21556600971E3B /* Model.xcdatamodeld */; };
 		D381899F1BF1F94C008C6142 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = D381899E1BF1F94C008C6142 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D38189AE1BF1F998008C6142 /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A61BF1F998008C6142 /* AlamofireOperation.swift */; };
 		D38189B21BF1F998008C6142 /* NSURLRequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */; };
@@ -37,12 +36,6 @@
 		86C924291BFA6750003864A7 /* RequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperationTests.swift; sourceTree = "<group>"; };
 		86C9242B1BFA69B0003864A7 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		86F207CF1C3F07A100F3CEFF /* Pichi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pichi.framework; path = "Carthage/Checkouts/Pichi/build/Debug-iphoneos/Pichi.framework"; sourceTree = "<group>"; };
-		D35978181C21554A00971E3B /* CoreDataMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapperTests.swift; sourceTree = "<group>"; };
-		D359781C1C21556600971E3B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D359781E1C21559F00971E3B /* ManagedData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ManagedData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D359781F1C21559F00971E3B /* ManagedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedData.swift; sourceTree = "<group>"; };
-		D35978221C21608F00971E3B /* UniqueData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniqueData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D35978231C21608F00971E3B /* UniqueData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueData.swift; sourceTree = "<group>"; };
 		D381899B1BF1F94C008C6142 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D381899E1BF1F94C008C6142 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
 		D38189A01BF1F94C008C6142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,25 +71,11 @@
 		86C9241F1BFA6737003864A7 /* CingulataTests */ = {
 			isa = PBXGroup;
 			children = (
-				D359781A1C21555C00971E3B /* Model */,
-				D35978181C21554A00971E3B /* CoreDataMapperTests.swift */,
 				86C924221BFA6737003864A7 /* Info.plist */,
 				86C924291BFA6750003864A7 /* RequestOperationTests.swift */,
 				86C9242B1BFA69B0003864A7 /* ApiClient.swift */,
 			);
 			path = CingulataTests;
-			sourceTree = "<group>";
-		};
-		D359781A1C21555C00971E3B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D359781B1C21556600971E3B /* Model.xcdatamodeld */,
-				D359781E1C21559F00971E3B /* ManagedData+CoreDataProperties.swift */,
-				D359781F1C21559F00971E3B /* ManagedData.swift */,
-				D35978221C21608F00971E3B /* UniqueData+CoreDataProperties.swift */,
-				D35978231C21608F00971E3B /* UniqueData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		D38189911BF1F94C008C6142 = {
@@ -242,7 +221,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C9242A1BFA6750003864A7 /* RequestOperationTests.swift in Sources */,
-				D359781D1C21556600971E3B /* Model.xcdatamodeld in Sources */,
 				86C9242C1BFA69B0003864A7 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,19 +433,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D359781B1C21556600971E3B /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D359781C1C21556600971E3B /* Model.xcdatamodel */,
-			);
-			currentVersion = D359781C1C21556600971E3B /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D38189921BF1F94C008C6142 /* Project object */;
 }
