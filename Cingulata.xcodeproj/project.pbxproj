@@ -7,28 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86C924211BFA6737003864A7 /* CingulataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C924201BFA6737003864A7 /* CingulataTests.swift */; };
 		86C924231BFA6737003864A7 /* Cingulata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D381899B1BF1F94C008C6142 /* Cingulata.framework */; };
 		86C9242A1BFA6750003864A7 /* RequestOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C924291BFA6750003864A7 /* RequestOperationTests.swift */; };
 		86C9242C1BFA69B0003864A7 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C9242B1BFA69B0003864A7 /* ApiClient.swift */; };
-		D35978191C21554A00971E3B /* CoreDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35978181C21554A00971E3B /* CoreDataMapperTests.swift */; };
-		D359781D1C21556600971E3B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D359781B1C21556600971E3B /* Model.xcdatamodeld */; };
-		D35978201C21559F00971E3B /* ManagedData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359781E1C21559F00971E3B /* ManagedData+CoreDataProperties.swift */; };
-		D35978211C21559F00971E3B /* ManagedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359781F1C21559F00971E3B /* ManagedData.swift */; };
-		D35978241C21608F00971E3B /* UniqueData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35978221C21608F00971E3B /* UniqueData+CoreDataProperties.swift */; };
-		D35978251C21608F00971E3B /* UniqueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35978231C21608F00971E3B /* UniqueData.swift */; };
+		86F207D01C3F07A100F3CEFF /* Pichi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86F207CF1C3F07A100F3CEFF /* Pichi.framework */; };
 		D381899F1BF1F94C008C6142 /* Cingulata.h in Headers */ = {isa = PBXBuildFile; fileRef = D381899E1BF1F94C008C6142 /* Cingulata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D38189AE1BF1F998008C6142 /* AlamofireOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A61BF1F998008C6142 /* AlamofireOperation.swift */; };
-		D38189AF1BF1F998008C6142 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A71BF1F998008C6142 /* CoreDataMapper.swift */; };
-		D38189B01BF1F998008C6142 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A81BF1F998008C6142 /* Mapper.swift */; };
-		D38189B11BF1F998008C6142 /* NSManagedObjectContext+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */; };
 		D38189B21BF1F998008C6142 /* NSURLRequestBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */; };
 		D38189B31BF1F998008C6142 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AB1BF1F998008C6142 /* Operation.swift */; };
 		D38189B41BF1F998008C6142 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AC1BF1F998008C6142 /* RequestOperation.swift */; };
 		D38189B51BF1F998008C6142 /* ReuquestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38189AD1BF1F998008C6142 /* ReuquestBuilder.swift */; };
-		D38189B71BF1F9D6008C6142 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */; };
 		D38189B91BF1F9DE008C6142 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189B81BF1F9DE008C6142 /* Alamofire.framework */; };
-		D38189BB1BF1FA2B008C6142 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38189BA1BF1FA2B008C6142 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,30 +32,19 @@
 
 /* Begin PBXFileReference section */
 		86C9241E1BFA6737003864A7 /* CingulataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CingulataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		86C924201BFA6737003864A7 /* CingulataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CingulataTests.swift; sourceTree = "<group>"; };
 		86C924221BFA6737003864A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86C924291BFA6750003864A7 /* RequestOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperationTests.swift; sourceTree = "<group>"; };
 		86C9242B1BFA69B0003864A7 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		D35978181C21554A00971E3B /* CoreDataMapperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapperTests.swift; sourceTree = "<group>"; };
-		D359781C1C21556600971E3B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		D359781E1C21559F00971E3B /* ManagedData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ManagedData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D359781F1C21559F00971E3B /* ManagedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedData.swift; sourceTree = "<group>"; };
-		D35978221C21608F00971E3B /* UniqueData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UniqueData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D35978231C21608F00971E3B /* UniqueData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniqueData.swift; sourceTree = "<group>"; };
+		86F207CF1C3F07A100F3CEFF /* Pichi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pichi.framework; path = "Carthage/Checkouts/Pichi/build/Debug-iphoneos/Pichi.framework"; sourceTree = "<group>"; };
 		D381899B1BF1F94C008C6142 /* Cingulata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cingulata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D381899E1BF1F94C008C6142 /* Cingulata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cingulata.h; sourceTree = "<group>"; };
 		D38189A01BF1F94C008C6142 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D38189A61BF1F998008C6142 /* AlamofireOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireOperation.swift; sourceTree = "<group>"; };
-		D38189A71BF1F998008C6142 /* CoreDataMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
-		D38189A81BF1F998008C6142 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
-		D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Ext.swift"; sourceTree = "<group>"; };
 		D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLRequestBuilders.swift; sourceTree = "<group>"; };
 		D38189AB1BF1F998008C6142 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		D38189AC1BF1F998008C6142 /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		D38189AD1BF1F998008C6142 /* ReuquestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReuquestBuilder.swift; sourceTree = "<group>"; };
-		D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Carthage/Checkouts/ObjectMapper/build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		D38189B81BF1F9DE008C6142 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Carthage/Checkouts/Alamofire/build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		D38189BA1BF1FA2B008C6142 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D38189BB1BF1FA2B008C6142 /* CoreData.framework in Frameworks */,
+				86F207D01C3F07A100F3CEFF /* Pichi.framework in Frameworks */,
 				D38189B91BF1F9DE008C6142 /* Alamofire.framework in Frameworks */,
-				D38189B71BF1F9D6008C6142 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +71,6 @@
 		86C9241F1BFA6737003864A7 /* CingulataTests */ = {
 			isa = PBXGroup;
 			children = (
-				D359781A1C21555C00971E3B /* Model */,
-				D35978181C21554A00971E3B /* CoreDataMapperTests.swift */,
-				86C924201BFA6737003864A7 /* CingulataTests.swift */,
 				86C924221BFA6737003864A7 /* Info.plist */,
 				86C924291BFA6750003864A7 /* RequestOperationTests.swift */,
 				86C9242B1BFA69B0003864A7 /* ApiClient.swift */,
@@ -104,24 +78,11 @@
 			path = CingulataTests;
 			sourceTree = "<group>";
 		};
-		D359781A1C21555C00971E3B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D359781B1C21556600971E3B /* Model.xcdatamodeld */,
-				D359781E1C21559F00971E3B /* ManagedData+CoreDataProperties.swift */,
-				D359781F1C21559F00971E3B /* ManagedData.swift */,
-				D35978221C21608F00971E3B /* UniqueData+CoreDataProperties.swift */,
-				D35978231C21608F00971E3B /* UniqueData.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D38189911BF1F94C008C6142 = {
 			isa = PBXGroup;
 			children = (
-				D38189BA1BF1FA2B008C6142 /* CoreData.framework */,
+				86F207CF1C3F07A100F3CEFF /* Pichi.framework */,
 				D38189B81BF1F9DE008C6142 /* Alamofire.framework */,
-				D38189B61BF1F9D6008C6142 /* ObjectMapper.framework */,
 				D381899D1BF1F94C008C6142 /* Cingulata */,
 				86C9241F1BFA6737003864A7 /* CingulataTests */,
 				D381899C1BF1F94C008C6142 /* Products */,
@@ -141,9 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				D38189A61BF1F998008C6142 /* AlamofireOperation.swift */,
-				D38189A71BF1F998008C6142 /* CoreDataMapper.swift */,
-				D38189A81BF1F998008C6142 /* Mapper.swift */,
-				D38189A91BF1F998008C6142 /* NSManagedObjectContext+Ext.swift */,
 				D38189AA1BF1F998008C6142 /* NSURLRequestBuilders.swift */,
 				D38189AB1BF1F998008C6142 /* Operation.swift */,
 				D38189AC1BF1F998008C6142 /* RequestOperation.swift */,
@@ -262,15 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C924211BFA6737003864A7 /* CingulataTests.swift in Sources */,
-				D35978251C21608F00971E3B /* UniqueData.swift in Sources */,
-				D35978201C21559F00971E3B /* ManagedData+CoreDataProperties.swift in Sources */,
-				D35978241C21608F00971E3B /* UniqueData+CoreDataProperties.swift in Sources */,
 				86C9242A1BFA6750003864A7 /* RequestOperationTests.swift in Sources */,
-				D359781D1C21556600971E3B /* Model.xcdatamodeld in Sources */,
-				D35978211C21559F00971E3B /* ManagedData.swift in Sources */,
 				86C9242C1BFA69B0003864A7 /* ApiClient.swift in Sources */,
-				D35978191C21554A00971E3B /* CoreDataMapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,9 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38189AE1BF1F998008C6142 /* AlamofireOperation.swift in Sources */,
-				D38189B01BF1F998008C6142 /* Mapper.swift in Sources */,
-				D38189B11BF1F998008C6142 /* NSManagedObjectContext+Ext.swift in Sources */,
-				D38189AF1BF1F998008C6142 /* CoreDataMapper.swift in Sources */,
 				D38189B21BF1F998008C6142 /* NSURLRequestBuilders.swift in Sources */,
 				D38189B51BF1F998008C6142 /* ReuquestBuilder.swift in Sources */,
 				D38189B31BF1F998008C6142 /* Operation.swift in Sources */,
@@ -485,19 +433,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D359781B1C21556600971E3B /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D359781C1C21556600971E3B /* Model.xcdatamodel */,
-			);
-			currentVersion = D359781C1C21556600971E3B /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D38189921BF1F94C008C6142 /* Project object */;
 }

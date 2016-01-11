@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Carthage/Checkouts/ObjectMapper/ObjectMapper.xcodeproj">
+      location = "group:Carthage/Checkouts/Pichi/Pichi.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">

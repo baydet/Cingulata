@@ -9,23 +9,23 @@
 import Foundation
 import Cingulata
 import Alamofire
-import ObjectMapper
+import Pichi
+
+func testDataMapping<M: Map>(inout data: TestData, map: M) {
+    data.stringKey <-> map["key"]
+    data.string2Key <-> map["key2"]
+}
 
 struct TestData: Mappable {
     var stringKey: String = ""
-    var string2Key: String = ""
+    var string2Key: String? = nil
     
     init() {
     }
     
-    init?(_ map: Map) {
-        self = TestData()
+    init<T:Map>(_ map: T) {
     }
     
-    mutating func mapping(map: Map) {
-        stringKey <- map["key"]
-        string2Key <- map["key2"]
-    }
 }
 
 struct NestedData: Mappable {
@@ -34,13 +34,10 @@ struct NestedData: Mappable {
     init() {
     }
     
-    init?(_ map: Map) {
-        self = NestedData()
+    init<T:Map>(_ map: T) {
+        
     }
-    
-    mutating func mapping(map: Map) {
-        stringKey <- map["Host"]
-    }
+
 }
 
 enum Endpoint: RequestBuilder {
@@ -79,7 +76,7 @@ enum Endpoint: RequestBuilder {
     var requestMapping: RequestObjectMapping? {
         switch self {
         case .Data(let data):
-            return (nil, DefaultMapper<TestData>(expectedResultType: .Object), data)
+            return RequestObjectMapping(key: nil, sourceObject: data,  transform: RequestDictionaryMapping<TestData>(mapFunction: testDataMapping))
         default:
             return nil
         }
@@ -90,9 +87,7 @@ enum Endpoint: RequestBuilder {
     var responseMapping: [ResponseObjectMapping]? {
         switch self {
         case .Data:
-            return [(HTTPStatusCode.Success, nil, DefaultMapper<TestData>(expectedResultType: .Object))]
-        case .GetNestedData:
-            return [(HTTPStatusCode.Success, "headers", DefaultMapper<NestedData>(expectedResultType: .Object))]
+            return [ResponseObjectMapping(code: HTTPStatusCode.Success, key: nil, transform: ResponseDictionaryMapping<TestData>(mapFunction: testDataMapping))]
         default:
             return nil
         }
