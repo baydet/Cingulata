@@ -1,2 +1,2 @@
-github "baydet/ObjectMapper" "currentValue-on-Map-init"
+github "baydet/ObjectMapper" "beec62f6228acab2aef754daeb57dbaf776897bf"
 github "Alamofire/Alamofire" ~> 3.0
