@@ -1,0 +1,10 @@
+framework module Pichi {
+  umbrella header "Pichi.h"
+
+  export *
+  module * { export * }
+}
+
+module Pichi.Swift {
+    header "Pichi-Swift.h"
+}

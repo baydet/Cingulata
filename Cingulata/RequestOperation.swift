@@ -139,6 +139,8 @@ public class RequestOperation: Operation {
     private let internalQueue = NSOperationQueue()
     private var operationStartDate: NSDate = NSDate()
     private var mappingResults: [Any] = []
+    private let taskType: TaskType
+    private let manager: Manager?
     
     /**
      Default request initialization flow
@@ -152,7 +154,7 @@ public class RequestOperation: Operation {
      
      - returns: RequestOperation object
      */
-    public required init(requestMethod: Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL) {
+    public required init(requestMethod: Method, parameters:[String: AnyObject]? = nil, requestBuilder: NSURLRequestBuilder, requestMapping: RequestObjectMapping? = nil, responseMappings: [ResponseObjectMapping]? = nil, URL: NSURL, taskType: TaskType, manager: Manager?) {
 
         self.parameters = parameters
         self.requestMethod = requestMethod
@@ -160,6 +162,8 @@ public class RequestOperation: Operation {
         self.responseMappings = responseMappings
         self.requestBuilder = requestBuilder
         self.URL = URL
+        self.taskType = taskType
+        self.manager = manager
 
         super.init()
 
@@ -205,7 +209,7 @@ public class RequestOperation: Operation {
 
         do {
             let URLRequest = try requestBuilder(parameters: requestParameters(), HTTPMethod: requestMethod.rawValue, URL: URL)
-            let httpOperation = AlamofireOperation(request: URLRequest)
+            let httpOperation = AlamofireOperation(request: URLRequest, taskType: taskType, manager: manager)
             httpOperation.completionBlock = { [weak self, unowned httpOperation] in
                 if let statusCode = httpOperation.statusCode {
                     let group = HTTPStatusCode(rawValue: statusCode)
